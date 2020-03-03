@@ -1,16 +1,9 @@
 def solution(numbers):
-    answer = ''
-    result = []
-    n = len(numbers)
-    for i in range(1 << n):
-        imsi = []
-        for j in range(n + 1):
-            if i & (1 << j):
-                imsi.append(str(numbers[j]))
-        if len(imsi) > 0:
-            a = ''.join(imsi)
-            result.append(int(a))
-    print(result)
+    numbers = list(map(str, numbers))
+    numbers.sort(key=lambda x:x*3, reverse=True)
+    answer = ''.join(numbers)
+    return answer
 
 
-solution([6,10,2])
+result = solution([6,10,2])
+print(result)
