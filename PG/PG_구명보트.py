@@ -1,21 +1,18 @@
 def solution(people, limit):
     answer = 0
-    people = sorted(people, reverse=True)
-    going = [0 for _ in range(len(people))]
+    hPeople = sorted(people, reverse=True)
+    going = [0 for _ in range(len(hPeople))]
+    idx = len(hPeople) - 1
     for person in range(len(people)):
-        if not going[person]:
-            going[person] = 1
-            for another in range(len(people)-1, person, -1):
-                if people[person] + people[another] <= limit:
-                    if not going[another]:
-                        going[another] = 1
-                        break
-            answer += 1
-
+        if going[person]:
+            break
+        else:
+            if hPeople[person] + hPeople[idx] <= limit:
+                going[person] = 1
+                going[idx] = 1
+                idx -= 1
+        answer += 1
     return answer
 
-#
-print(solution([70, 50, 80, 50], 100))
-# print(solution([70, 80, 50], 100))
-# print(solution([20, 80, 50, 50],100))
-# print(solution([40, 40, 40], 100))
+print(solution([70,50,80,50], 100))
+print(solution([70,80,50],100))
