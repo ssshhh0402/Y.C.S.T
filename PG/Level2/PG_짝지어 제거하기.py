@@ -1,19 +1,17 @@
 def solution(s):
     answer = 0
-    N = len(s)
-    base = [0 for _ in range(N)]
-    while True:
-
-        for idx in range(N):
-            if not base[idx]:
-                temps = 1
-                while True:
-                    n = idx + temps
-                    if not base[n]:
-                        if s[n] == s[idx]:
-                            base[n] = base[idx] = 1
-                    else:
-                        temps += 1
-    return sum(base) == 0 ? True : false
+    s = list(s)
+    base = []
+    for chr in s:
+        base.append(chr)
+        if len(base) >= 2:
+            if base[-1] == base[-2]:
+                base.pop()
+                base.pop()
+    if len(base) == 0:
+        return 1
+    else:
+        return 0
 
 print(solution("baabaa"))
+print(solution("cdcd"))
