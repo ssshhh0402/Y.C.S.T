@@ -3,10 +3,17 @@ def solution(boards):
     answer = 0
     N = len(boards)
     visited = [[0 for _ in range(N)] for _ in range(N)]
-    dq = deque([(1, 0, 'D', 100), (0, 1, 'R', 100)])
+    visited[0][0] = 1
+    dq = deque([(1, 0, 'D', 200), (0, 1, 'R', 200)])
+
+    def getCost(idi, di, icost):
+        if idi in ['R','L'] and di in ['U','D'] or idi in ['U','D'] and di in ['R','L']:
+            return icost + 500
+        else:
+            return icost + 100
     for item in dq:
-        visited[item[0]][item[1]] = 1
-    while deque:
+        visited[item[0]][item[1]] = 200
+    while dq:
         for _ in range(len(dq)):
             ix, iy, idi, icost = dq.popleft()
             if ix == N-1 and iy == N-1:
@@ -15,22 +22,13 @@ def solution(boards):
                 else:
                     answer = min(answer, icost)
                 continue
-            for dx, dy, di in [(0,1,'R'), (0,-1,'L')]:
-                x, y = ix+dx, iy+dy
-                if 0 <= x < N and 0 <= y < N and not visited[x][y] and not boards[x][y]:
-                    visited[x][y] = 1
-                    if idi in ['R', 'L']:
-                        dq.append((x,y,di,icost+100))
-                    else:
-                        dq.append((x,y,di,icost+500))
-            for dx, dy, di in [(1,0,'D'), (-1,0,'U')]:
-                x, y = ix+dx, iy+dy
-                if 0 <= x < N and 0 <= y < N and not visited[x][y] and not boards[x][y]:
-                    visited[x][y] = 1
-                    if idi in ['D', 'U']:
-                        dq.append((x, y, di, icost+100))
-                    else:
-                        dq.append((x, y, di, icost+500))
+            else:
+                for dx, dy, di in [(0, 1, 'R'), (0, -1, 'L'), (1, 0, 'D'), (-1, 0, 'U')]:
+                    x, y, z = ix+dx, iy+dy, getCost(idi, di, icost)
+                    if 0 <= x < N and 0 <= y < N and not boards[x][y]:
+                        if not visited[x][y] or visited[x][y] > z:
+                            visited[x][y] = z
+                            dq.append((x, y, di, z))
     return answer
 
 
