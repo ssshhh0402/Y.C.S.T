@@ -85,8 +85,64 @@ def solution(board):
                             dq.append((new_left, right, time + 1))
                 elif left[1] == right[1]:   # 좌-우 일직선
                     #오른쪽 기준 회전
+                    flag_left = False
+                    flag_right = False
+                    for dx, dy in [(1,0),(1,1)]:
+                        new_right = (left[0] + dx, left[1] + dy)
+                        if 0 <= new_right[0] < N and 0 <= new_right[1]:
+                            if board[new_right[0]][new_right[1]] == 1:
+                                flag_right = True
+                                break
+                        else:
+                            flag_right = False
+                    for dx, dy in [(-1, 0),(-1,1)]:
+                        new_right = (left[0] + dx, left[1] + dy)
+                        if 0 <= new_right[0] < N and 0 <= new_right[1]:
+                            if board[new_right[0]][new_right[1]] == 1:
+                                flag_left = True
+                                break
+                    if not flag_right:
+                        new_left = left[0] + 1, left[1] + 1
+                        if (left, right, new_left, right) not in visited:
+                            visited.append((left, right, new_left, right))
+                            dq.append((new_left, right, time + 1))
+                    if not flag_left:
+                        new_left = left[0] + 1, left[1] + 1
+                        if (left, right, new_left, right) not in visited:
+                            visited.append((left, right, new_left, right))
+                            dq.append((new_left, right, time + 1))
                     #왼쪽 기준 회전
-
-
+                    flag_left = False
+                    flag_right = False
+                    for dx, dy in [(-1,-1),(-1,0)]:
+                        new_left = right[0] + dx, right[1] + dy
+                        if 0 <= new_left[0] < N and 0 <= new_left[1] < N:
+                            if board[new_left[0]][new_left[1]] == 1:
+                                flag_left = True
+                                break
+                        else:
+                            flag_left = False
+                            break
+                    for dx, dy in [(1, -1), (1, 0)]:
+                        new_right = right[0] + dx, right[1] + dy
+                        if 0 <= new_right[0] < N and 0 <= new_right[1] < N:
+                            if board[new_right[0]][new_right][1] == 1:
+                                flag_right = True
+                                break
+                        else:
+                            flag_right = True
+                            break
+                    if not flag_left:
+                        new_left = right[0] -1, right[1] - 1
+                        if (left, right, new_left, right) not in visited:
+                            visited.append((left, right, new_left, right))
+                            dq.append((new_left, right, time + 1))
+                    if not flag_right:
+                        new_right = right[0] + 1, right[1] - 1
+                        if (left, right, left, new_right) not in visited:
+                            visited.append((left, right, left, new_right))
+                            dq.append((left, new_right, time + 1))
 
     return answer
+
+print(solution())
