@@ -1,6 +1,7 @@
 def solution(n,money):
     answer = 0
-    dp = [[[0] for _ in range(len(money))] for _ in range(len(money))]
+    N = len(money)
+    dp = [[[0] for _ in range(N)] for _ in range(N)]
     for x in range(len(money)):
         for y in range(len(money)):
             if not x or not y:
