@@ -1,18 +1,18 @@
 def solution(number, k):
-    answer = ''
-    comp = -1
-    N = len(number)
-    base = list(map(int, list(number)))
-    target = N - k
-    while len(answer) == target:
-        temp = 0
-        n = len(answer)
-        for j in range(comp+1, k+n+1):
-            if temp < base[j]:
-                comp = j
-                temp = base[j]
-        answer += str(temp)
-    return answer
+    answer = []
+    for i, num in enumerate(number):
+        while len(answer) > 0 and answer[-1] < num and k > 0:
+            answer.pop()
+            k -= 1
+        if k == 0:
+            answer += list(number[i:])
+            break
+        answer.append(num)
+    if k > 0:
+        answer = answer[:-k]
+    return ''.join(answer)
+
+
 
 
 # print(solution("1924", 2))
