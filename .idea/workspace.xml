@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="95c1a5cd-a7f2-4a9c-8ccc-680fae91cf65" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Y.C.S.T.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Y.C.S.T.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PG/Level2/PG_타겟 넘버.py" beforeDir="false" afterPath="$PROJECT_DIR$/PG/Level2/PG_타겟 넘버.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PG/Level3/PG_통신국.py" beforeDir="false" afterPath="$PROJECT_DIR$/PG/Level3/PG_통신국.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PG/PG_영어 끝말잇기.py" beforeDir="false" afterPath="$PROJECT_DIR$/PG/Level2/PG_영어 끝말잇기.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,12 +46,14 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/PG/Level2" />
       <recent name="C:\Users\Hong\Desktop\Ssafy\Y.C.S.T\BJ\DP" />
       <recent name="C:\Users\Hong\Desktop\Ssafy\Y.C.S.T\BJ\시뮬레이션" />
       <recent name="C:\Users\Hong\Desktop\Ssafy\Y.C.S.T\BJ" />
@@ -51,27 +73,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/구름/Level2/1등과 2등.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="PG_큰수 만들기" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Y.C.S.T" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PG/Level2" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PG/Level2/PG_큰수 만들기.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -164,7 +165,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="PG_가장 큰 정사각형" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="PG_영어 끝말잇기" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Y.C.S.T" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -176,7 +177,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PG/Level2/PG_가장 큰 정사각형.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PG/Level2/PG_영어 끝말잇기.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -185,28 +186,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="PG_비밀지도" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Y.C.S.T" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PG/Level1" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PG/Level1/PG_비밀지도.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="PG_N개의 최소공배수" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="PG_타겟 넘버" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Y.C.S.T" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -218,7 +198,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PG/Level2/PG_N개의 최소공배수.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PG/Level2/PG_타겟 넘버.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -227,7 +207,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="PG_여행경로" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="PG_카펫" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Y.C.S.T" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -235,11 +215,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PG/Level3" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PG/Level2" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PG/Level3/PG_여행경로.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PG/Level2/PG_카펫.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -303,6 +283,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PG/Level3/PG_여행경로.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PG_거스름돈" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Y.C.S.T" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PG/Level3" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PG/Level3/PG_거스름돈.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -395,27 +396,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="PG_거스름돈" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Y.C.S.T" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PG/Level3" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PG/Level3/PG_거스름돈.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="PG_베스트앨범" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Y.C.S.T" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -450,6 +430,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PG/Level2/PG_올바른괄호.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PG_셔틀버스" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Y.C.S.T" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PG/Level2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PG/Level2/PG_셔틀버스.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -605,6 +606,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="PG_여행경로" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Y.C.S.T" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PG/Level3" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PG/Level3/PG_여행경로.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="PG_순위" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Y.C.S.T" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -689,41 +711,16 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="PG_x만큼 간격 n개 숫자" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Y.C.S.T" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PG/Level1" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PG/Level1/PG_x만큼 간격 n개 숫자.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Python.PG_비밀지도" />
-      <item itemvalue="Python.PG_x만큼 간격 n개 숫자" />
-      <item itemvalue="Python.PG_가장 큰 정사각형" />
-      <item itemvalue="Python.PG_N개의 최소공배수" />
       <item itemvalue="Python.1등과 2등" />
+      <item itemvalue="Python.PG_카펫" />
+      <item itemvalue="Python.PG_타겟 넘버" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.PG_타겟 넘버" />
+        <item itemvalue="Python.PG_카펫" />
         <item itemvalue="Python.1등과 2등" />
-        <item itemvalue="Python.PG_N개의 최소공배수" />
-        <item itemvalue="Python.PG_가장 큰 정사각형" />
-        <item itemvalue="Python.PG_x만큼 간격 n개 숫자" />
-        <item itemvalue="Python.PG_비밀지도" />
       </list>
     </recent_temporary>
   </component>
@@ -741,39 +738,59 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state width="809" height="346" key="GridCell.Tab.0.bottom" timestamp="1597737516989">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="1659" height="289" key="GridCell.Tab.0.bottom" timestamp="1597822323520">
+      <screen x="0" y="23" width="1680" height="947" />
     </state>
-    <state width="809" height="346" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1597737516989" />
-    <state width="809" height="346" key="GridCell.Tab.0.center" timestamp="1597737516988">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="809" height="346" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1597821727151" />
+    <state width="1659" height="289" key="GridCell.Tab.0.bottom/0.23.1680.947@0.23.1680.947" timestamp="1597822323520" />
+    <state width="1659" height="289" key="GridCell.Tab.0.center" timestamp="1597822323520">
+      <screen x="0" y="23" width="1680" height="947" />
     </state>
-    <state width="809" height="346" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1597737516988" />
-    <state width="809" height="346" key="GridCell.Tab.0.left" timestamp="1597737516987">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="809" height="346" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1597821727151" />
+    <state width="1659" height="289" key="GridCell.Tab.0.center/0.23.1680.947@0.23.1680.947" timestamp="1597822323520" />
+    <state width="1659" height="289" key="GridCell.Tab.0.left" timestamp="1597822323520">
+      <screen x="0" y="23" width="1680" height="947" />
     </state>
-    <state width="809" height="346" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1597737516987" />
-    <state width="809" height="346" key="GridCell.Tab.0.right" timestamp="1597737516988">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="809" height="346" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1597821727150" />
+    <state width="1659" height="289" key="GridCell.Tab.0.left/0.23.1680.947@0.23.1680.947" timestamp="1597822323520" />
+    <state width="1659" height="289" key="GridCell.Tab.0.right" timestamp="1597822323520">
+      <screen x="0" y="23" width="1680" height="947" />
     </state>
-    <state width="809" height="346" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1597737516988" />
-    <state width="809" height="346" key="GridCell.Tab.1.bottom" timestamp="1597737516990">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="809" height="346" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1597821727151" />
+    <state width="1659" height="289" key="GridCell.Tab.0.right/0.23.1680.947@0.23.1680.947" timestamp="1597822323520" />
+    <state width="1659" height="346" key="GridCell.Tab.1.bottom" timestamp="1597822320380">
+      <screen x="0" y="23" width="1680" height="947" />
     </state>
-    <state width="809" height="346" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1597737516990" />
-    <state width="809" height="346" key="GridCell.Tab.1.center" timestamp="1597737516989">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="809" height="346" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1597821727428" />
+    <state width="1659" height="346" key="GridCell.Tab.1.bottom/0.23.1680.947@0.23.1680.947" timestamp="1597822320380" />
+    <state width="1659" height="346" key="GridCell.Tab.1.center" timestamp="1597822320380">
+      <screen x="0" y="23" width="1680" height="947" />
     </state>
-    <state width="809" height="346" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1597737516989" />
-    <state width="809" height="346" key="GridCell.Tab.1.left" timestamp="1597737516989">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="809" height="346" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1597821727427" />
+    <state width="1659" height="346" key="GridCell.Tab.1.center/0.23.1680.947@0.23.1680.947" timestamp="1597822320380" />
+    <state width="1659" height="346" key="GridCell.Tab.1.left" timestamp="1597822320380">
+      <screen x="0" y="23" width="1680" height="947" />
     </state>
-    <state width="809" height="346" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1597737516989" />
-    <state width="809" height="346" key="GridCell.Tab.1.right" timestamp="1597737516990">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="809" height="346" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1597821727427" />
+    <state width="1659" height="346" key="GridCell.Tab.1.left/0.23.1680.947@0.23.1680.947" timestamp="1597822320380" />
+    <state width="1659" height="346" key="GridCell.Tab.1.right" timestamp="1597822320380">
+      <screen x="0" y="23" width="1680" height="947" />
     </state>
-    <state width="809" height="346" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1597737516990" />
+    <state width="809" height="346" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1597821727427" />
+    <state width="1659" height="346" key="GridCell.Tab.1.right/0.23.1680.947@0.23.1680.947" timestamp="1597822320380" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1040,6 +1057,16 @@
           <url>file://$PROJECT_DIR$/PG/Level2/PG_N개의 최소공배수.py</url>
           <line>4</line>
           <option name="timeStamp" value="191" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PG/Level2/PG_타겟 넘버.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="196" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PG/Level2/PG_영어 끝말잇기.py</url>
+          <line>5</line>
+          <option name="timeStamp" value="200" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

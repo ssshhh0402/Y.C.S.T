@@ -1,23 +1,21 @@
-def find(numbers, finds, target):
-    idx = 0
-    if len(numbers) == len(finds):
-        if sum(finds) == target:
-            return 1
-        else:
-            return 0
-    else:
-        target_1 = finds
-        target_1.append(numbers[len(finds)])
-        idx += find(numbers, target_1, target)
-        target_1.pop()
-        target_1.append(-(numbers[len(finds)]))
-        idx += find(numbers, target_1, target)
-        return idx
+
+
+
 def solution(numbers, target):
+    global answer
     answer = 0
-    answer += find(numbers, [numbers[0]], target)
-    answer += find(numbers, [-numbers[0]], target)
+    def find(numbers, finds, target, n):
+        global answer
+        if n == len(numbers):
+            if finds == target:
+                answer += 1
+        else:
+            find(numbers, finds + numbers[n], target, n + 1)
+            find(numbers, finds - numbers[n], target, n + 1)
+
+    find(numbers, numbers[0], target, 1)
+    find(numbers, -numbers[0], target, 1)
     return answer
 
 
-print(solution([1, 2, 3, 4, 5], 3))
+print(solution([1, 1, 1, 1, 1], 3))
