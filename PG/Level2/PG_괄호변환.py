@@ -1,24 +1,28 @@
 def solution(p):
     answer = ''
-    base = []
     p = list(p)
     if not p:
         return answer
 
+    def convert(params):
+        answer = ''
+        for param in params:
+            if param == '(':
+                answer += ')'
+            else:
+                answer += '('
+        return answer
+
     def div(p):
         left = 0
-        idx = 0
+        right = 0
         for word in range(len(p)):
             if p[word] == '(':
                 left += 1
             else:
-                if left > 0:
-                    left -= 1
-                    if not left and not idx:
-                        idx = word
-                else:
-                    break
-        return p[0:idx], p[idx:]
+                right += 1
+            if left == right:
+                return p[0:word+1], p[word+1:]
 
     def check(matters):
         count = 0
@@ -36,21 +40,18 @@ def solution(p):
 
     while p:
         u, v = div(p)
+        p = v
         if check(u):
-            base.append(u)
-            p = v
+            answer += ''.join(u)
         else:
             answer += '('
-            for item in range(len(base)):
-                if item == 0:
-                    n = len(base[item])
-                    answer += base[item][1:n-1]
-                else:
-                    answer += base[item]
+            answer += solution(v)
             answer += ')'
+            answer += convert(u[1:-1])
+            break
     return answer
 
 
-print(solution('(()())()'))
-print(solution(")("))
+# print(solution('(()())()'))
+#print(solution(")("))
 print(solution("()))((()"))
