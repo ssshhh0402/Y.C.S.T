@@ -14,10 +14,11 @@ def solution(p):
             else:
                 if left > 0:
                     left -= 1
-                    if not left:
+                    if not left and not idx:
                         idx = word
                 else:
-                    return p[0:idx], p[idx:]
+                    break
+        return p[0:idx], p[idx:]
 
     def check(matters):
         count = 0
@@ -50,4 +51,6 @@ def solution(p):
     return answer
 
 
-print(solution('aa'));
+print(solution('(()())()'))
+print(solution(")("))
+print(solution("()))((()"))
