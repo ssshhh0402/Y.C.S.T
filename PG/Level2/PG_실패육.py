@@ -6,7 +6,6 @@ def solution(N, stages):
         total = 0
         Nclear = 0
         for stage in stages:
-
             if stage > idx:
                 total += 1
             elif stage == idx:

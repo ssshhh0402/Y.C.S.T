@@ -14,7 +14,7 @@ def find2(expression, target):
             temps = base.pop()
             numa = int(base.pop())
             items = calc(temps, numa, int(expression[idx]))
-            base.append(items)
+            base.append(str(items))
         else:
             base.append(expression[idx])
     return base
@@ -34,21 +34,20 @@ def find3(expression, priority):
     base = ['-','+','*']
     answer = 0
     for item in priority:
-         expression= find2(expression, base[priority])
-    
+         expression= find2(expression, item)
+    return int(expression[0])
+
 def solution(expression):
     import itertools
     answer = 0
     expression = find(expression)
     base = ['-','+','*']
-    prio = [0,1,2]
-    prio = list(itertools.permutations(prio,3))
+
+    prio = list(itertools.permutations(base, 3))
 
     for pr in prio:
         expressions = find3(expression, pr)
-        for item in pr:
-            expression = find2(expression,base[item])
-            print(expression)
+        answer = max(abs(expressions), answer)
     return answer
 
 
