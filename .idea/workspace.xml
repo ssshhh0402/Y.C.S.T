@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="95c1a5cd-a7f2-4a9c-8ccc-680fae91cf65" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PG/Level3/PG_길찾기 게임.py" beforeDir="false" afterPath="$PROJECT_DIR$/PG/Level3/PG_길찾기 게임.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +56,7 @@
       <recent name="C:\Users\Hong\Desktop\Ssafy\Y.C.S.T\BJ" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.PG_경주로 건설">
+  <component name="RunManager" selected="Python.11053_가장 긴 증가하는 수열">
     <configuration name="1003_피보나치" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Y.C.S.T" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -79,7 +78,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="2번" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="11053_가장 긴 증가하는 수열" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Y.C.S.T" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -87,11 +86,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/이베이코리아" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/BJ/DP" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/이베이코리아/2번.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BJ/DP/11053_가장 긴 증가하는 수열.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -113,6 +112,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BJ/DP/2294_동전2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="2748_피보나치2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Y.C.S.T" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/BJ/DP" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BJ/DP/2748_피보나치2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -1070,15 +1090,17 @@
       <item itemvalue="Python.PG_경주로 건설" />
       <item itemvalue="Python.1003_피보나치" />
       <item itemvalue="Python.2294_동전2" />
-      <item itemvalue="Python.2번" />
       <item itemvalue="Python.PG_불법사용자" />
+      <item itemvalue="Python.2748_피보나치2" />
+      <item itemvalue="Python.11053_가장 긴 증가하는 수열" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.11053_가장 긴 증가하는 수열" />
+        <item itemvalue="Python.2748_피보나치2" />
         <item itemvalue="Python.PG_불법사용자" />
         <item itemvalue="Python.1003_피보나치" />
         <item itemvalue="Python.2294_동전2" />
-        <item itemvalue="Python.2번" />
       </list>
     </recent_temporary>
   </component>
@@ -1109,25 +1131,25 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1659" height="280" key="GridCell.Tab.0.bottom" timestamp="1598947771193">
+    <state width="1659" height="280" key="GridCell.Tab.0.bottom" timestamp="1598949383431">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="280" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1598947771193" />
+    <state width="1659" height="280" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1598949383431" />
     <state width="1659" height="345" key="GridCell.Tab.0.bottom/0.23.1680.947@0.23.1680.947" timestamp="1598628381560" />
-    <state width="1659" height="280" key="GridCell.Tab.0.center" timestamp="1598947771192">
+    <state width="1659" height="280" key="GridCell.Tab.0.center" timestamp="1598949383430">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="280" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1598947771192" />
+    <state width="1659" height="280" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1598949383430" />
     <state width="1659" height="345" key="GridCell.Tab.0.center/0.23.1680.947@0.23.1680.947" timestamp="1598628381559" />
-    <state width="1659" height="280" key="GridCell.Tab.0.left" timestamp="1598947771191">
+    <state width="1659" height="280" key="GridCell.Tab.0.left" timestamp="1598949383430">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="280" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1598947771191" />
+    <state width="1659" height="280" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1598949383430" />
     <state width="1659" height="345" key="GridCell.Tab.0.left/0.23.1680.947@0.23.1680.947" timestamp="1598628381559" />
-    <state width="1659" height="280" key="GridCell.Tab.0.right" timestamp="1598947771193">
+    <state width="1659" height="280" key="GridCell.Tab.0.right" timestamp="1598949383430">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="280" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1598947771193" />
+    <state width="1659" height="280" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1598949383430" />
     <state width="1659" height="345" key="GridCell.Tab.0.right/0.23.1680.947@0.23.1680.947" timestamp="1598628381559" />
     <state width="1659" height="345" key="GridCell.Tab.1.bottom" timestamp="1598947771185">
       <screen x="0" y="0" width="1680" height="1050" />
