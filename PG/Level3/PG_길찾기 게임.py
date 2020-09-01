@@ -1,3 +1,27 @@
+import sys
+sys.setrecursionlimit(10**6)
+def preorder(root, nodeList):
+    answer = []
+    n = nodeList.index(root.data) + 1
+    answer.append(n)
+    if root.left is not None:
+        answer.extend(preorder(root.left, nodeList))
+    if root.right is not None:
+        answer.extend(preorder(root.right, nodeList))
+    return answer
+
+
+def postorder(root, nodeList):
+    answer= []
+    if root.left is not None:
+        answer.extend(postorder(root.left, nodeList))
+    if root.right is not None:
+        answer.extend(postorder(root.right, nodeList))
+    n = nodeList.index(root.data) + 1
+    answer.append(n)
+    return answer
+
+
 class node:
     def __init__(self, data, left=None, right=None):
         self.data = data
@@ -6,10 +30,10 @@ class node:
 
 
 def solution(nodeInfo):
-    answer = 0
-    nodeInfo.sort(key=lambda x: (-x[1], x[0]))
+    answer = []
+    base = sorted(nodeInfo, key=lambda x: (-x[1], x[0]))
     root = None
-    for nodes in nodeInfo:
+    for nodes in base:
         if not root:
             root = node(nodes)
         else:
@@ -31,8 +55,8 @@ def solution(nodeInfo):
                         continue
                 break
 
-
-
+    answer.append(preorder(root,nodeInfo))
+    answer.append(postorder(root, nodeInfo))
     return answer
 
 print(solution([[5,3],[11,5],[13,3],[3,5],[6,1],[1,3],[8,6],[7,2],[2,2]]))
