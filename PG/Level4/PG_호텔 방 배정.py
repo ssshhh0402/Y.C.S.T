@@ -1,3 +1,12 @@
+import sys
+sys.setrecursionlimit(10**6)
+def find(target, base, used):
+    if not used[target]:
+        return target
+    else:
+        return find(base[target], base, used)
+
+
 def solution(k, room_number):
     answer = []
     base = {}
@@ -7,21 +16,14 @@ def solution(k, room_number):
     for room in room_number:
         if not used[room]:
             used[room] = 1
-            base[room] = base[base[room]+1]
+            base[room] = base[room] + 1
             answer.append(room)
         else:
-            n = base[room]
-            while True:
-                if not used[n]:
-                    break
-                else:
-                    n = base[n]
+            n = find(base[room], base, used)
             used[n] = 1
-            base[n] = base[base[n] + 1]
+            base[n] = base[n] + 1
             answer.append(n)
-
     return answer
-
 
 
 print(solution(10,[1,3,4,1,3,1]))
