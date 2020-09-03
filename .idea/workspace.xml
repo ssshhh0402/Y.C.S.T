@@ -20,9 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="95c1a5cd-a7f2-4a9c-8ccc-680fae91cf65" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/PG/Level4/PG_가사검색.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PG/Level4/PG_동굴탐험.py" beforeDir="false" afterPath="$PROJECT_DIR$/PG/Level4/PG_동굴탐험.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PG/Level4/PG_가사검색.py" beforeDir="false" afterPath="$PROJECT_DIR$/PG/Level4/PG_가사검색.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1027,45 +1026,45 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1659" height="345" key="GridCell.Tab.0.bottom" timestamp="1599117273808">
+    <state width="1659" height="280" key="GridCell.Tab.0.bottom" timestamp="1599122713397">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="345" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1599117273808" />
+    <state width="1659" height="280" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1599122713397" />
     <state width="1659" height="345" key="GridCell.Tab.0.bottom/0.23.1680.947@0.23.1680.947" timestamp="1598628381560" />
-    <state width="1659" height="345" key="GridCell.Tab.0.center" timestamp="1599117273807">
+    <state width="1659" height="280" key="GridCell.Tab.0.center" timestamp="1599122713396">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="345" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1599117273807" />
+    <state width="1659" height="280" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1599122713396" />
     <state width="1659" height="345" key="GridCell.Tab.0.center/0.23.1680.947@0.23.1680.947" timestamp="1598628381559" />
-    <state width="1659" height="345" key="GridCell.Tab.0.left" timestamp="1599117273807">
+    <state width="1659" height="280" key="GridCell.Tab.0.left" timestamp="1599122713396">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="345" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1599117273807" />
+    <state width="1659" height="280" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1599122713396" />
     <state width="1659" height="345" key="GridCell.Tab.0.left/0.23.1680.947@0.23.1680.947" timestamp="1598628381559" />
-    <state width="1659" height="345" key="GridCell.Tab.0.right" timestamp="1599117273808">
+    <state width="1659" height="280" key="GridCell.Tab.0.right" timestamp="1599122713396">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="345" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1599117273808" />
+    <state width="1659" height="280" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1599122713396" />
     <state width="1659" height="345" key="GridCell.Tab.0.right/0.23.1680.947@0.23.1680.947" timestamp="1598628381559" />
-    <state width="1659" height="345" key="GridCell.Tab.1.bottom" timestamp="1599117273711">
+    <state width="1659" height="345" key="GridCell.Tab.1.bottom" timestamp="1599122713386">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="345" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1599117273711" />
+    <state width="1659" height="345" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1599122713386" />
     <state width="1659" height="345" key="GridCell.Tab.1.bottom/0.23.1680.947@0.23.1680.947" timestamp="1598628381561" />
-    <state width="1659" height="345" key="GridCell.Tab.1.center" timestamp="1599117273710">
+    <state width="1659" height="345" key="GridCell.Tab.1.center" timestamp="1599122713385">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="345" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1599117273710" />
+    <state width="1659" height="345" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1599122713385" />
     <state width="1659" height="345" key="GridCell.Tab.1.center/0.23.1680.947@0.23.1680.947" timestamp="1598628381560" />
-    <state width="1659" height="345" key="GridCell.Tab.1.left" timestamp="1599117273710">
+    <state width="1659" height="345" key="GridCell.Tab.1.left" timestamp="1599122713385">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="345" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1599117273710" />
+    <state width="1659" height="345" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1599122713385" />
     <state width="1659" height="345" key="GridCell.Tab.1.left/0.23.1680.947@0.23.1680.947" timestamp="1598628381560" />
-    <state width="1659" height="345" key="GridCell.Tab.1.right" timestamp="1599117273711">
+    <state width="1659" height="345" key="GridCell.Tab.1.right" timestamp="1599122713386">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="345" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1599117273711" />
+    <state width="1659" height="345" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1599122713386" />
     <state width="1659" height="345" key="GridCell.Tab.1.right/0.23.1680.947@0.23.1680.947" timestamp="1598628381561" />
     <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1599099182291">
       <screen x="0" y="0" width="1680" height="1050" />
@@ -1432,6 +1431,16 @@
           <url>file://$PROJECT_DIR$/PG/Level4/PG_동굴탐험.py</url>
           <line>10</line>
           <option name="timeStamp" value="307" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PG/Level4/PG_가사검색.py</url>
+          <line>25</line>
+          <option name="timeStamp" value="308" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PG/Level4/PG_가사검색.py</url>
+          <line>15</line>
+          <option name="timeStamp" value="311" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
