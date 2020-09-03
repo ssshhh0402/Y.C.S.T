@@ -1,34 +1,29 @@
-def check(prio, here):
-    chk = False
-    for idx in prio.keys():
-        for item in prio[idx]:
-            if item == here:
-                return True
-    return chk
-
-def find(base, prio, used, now):
+def find(base, used, prio, now):
     global answer
+    a = len(set(now))
+    b = len(base)
     if len(set(now)) == len(base):
         answer = True
         return
     here = now[-1]
     for toGo in base[here]:
-        if not used[here][toGo]:
-            if here in prio.keys():
-                used[here][toGo] = 1
-                now.append(toGo)
-                temps = prio[here]
-                del prio[here]
-                find(base, prio, used, now)
-                now.pop()
-                prio[here] = temps
-                used[here][toGo] = 0
-            elif check(prio, toGo):
-                used[here][toGo] = 1
-                now.append(toGo)
-                find(base, prio, used, now)
-                now.pop()
-                used[here][toGo] = 0
+        if used[here][toGo] == 2:
+            temps = prio[here]
+            for somewhere in temps:
+                used[here][somewhere] = 0
+            del prio[here]
+            used[here][toGo] = 1
+            now.append(toGo)
+            find(base, used, prio, now)
+            prio[here] = temps
+            used[here][toGo] = 2
+            now.pop()
+        elif used[here][toGo] == 0:
+            used[here][toGo] = 1
+            now.append(toGo)
+            find(base, used, prio, now)
+            used[here][toGo] = 0
+            now.pop()
 
 
 def solution(n, path, order):
@@ -39,12 +34,14 @@ def solution(n, path, order):
     for start, end in path:
         base[start].append(end)
         base[end].append(start)
+
     for start, end in order:
-        if start not in prio.keys():
-            prio[start] = [end]
-        else:
+        used[start][end] = 2
+        if start in prio.keys():
             prio[start].append(end)
-    find(base, prio, used, [0])
+        else:
+            prio[start] = [end]
+    find(base, used, prio, [0])
     return answer
 
 
