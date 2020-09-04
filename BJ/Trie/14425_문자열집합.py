@@ -1,14 +1,18 @@
 def find(target, base):
-    answer = 0
+    answer = True
+    temps = 0
     now = base
     for chr in target:
-        if chr in now:
-            answer = now[chr]['count']
-            now = now[chr]
-        else:
-            answer = 0
+        if chr not in now:
+            answer = False
             break
-    return answer
+        else:
+            temps = now[chr]['count']
+            now = now[chr]
+    if not answer:
+        return 0
+    else:
+        return temps
 
 
 N, M = map(int, input().split())
