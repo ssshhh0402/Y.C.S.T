@@ -3,13 +3,21 @@ def timeCalc(times):
     return int(timeInfo[0] + timeInfo[1])
 
 def chLyric(lyrics):
+    lyrics.replace('C+', 'c')
+    lyrics.replace('D+', 'd')
+    lyrics.replace('F+', 'f')
+    lyrics.replace('G+', 'g')
+    lyrics.replace('A+', 'a')
+    return lyrics
     # 가사 바꿔서 하는걸로 다시 한번 고민!
 def solution(m, musicinfos):
     answer = 0
     lyrics = ''
     base= []
+    m = chLyric(m)
     for musicinfo in musicinfos:
         temps = musicinfo.split(",")
+        lyrics = chLyric()
         count = timeCalc(temps[1]) - timeCalc(temps[0])
         if count % len(temps[3]) == 0:
             n = count // len(temps[3])
