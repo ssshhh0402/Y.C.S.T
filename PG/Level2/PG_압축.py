@@ -1,24 +1,20 @@
 def solution(msg):
     answer = []
     base = [0,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-    message = 0
+    item = msg[0]
+    message = 1
     while message != len(msg):
-        temps = msg[message]
-        answer.append(base.index(temps))
-        idx = message + 1
-        if idx == len(msg):
-            break
-        else:
-            while idx != len(msg):
-                temps += msg[idx]
-                if temps not in base:
-                    base.append(temps)
-                    message = idx
-                    break
-                else:
-                    answer.append(base.index(temps))
-                    idx += 1
+        if item + msg[message] not in base:
+            answer.append(base.index(item))
+            base.append(item + msg[message])
+            item = msg[message]
+            message += 1
+            continue
+        item += msg[message]
+        message += 1
+    answer.append(base.index(item))
     return answer
 
 
 print(solution("KAKAO"))
+print(solution("TOBEORNOTTOBEORTOBEORNOT"))
