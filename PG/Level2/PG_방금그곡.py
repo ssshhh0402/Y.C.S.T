@@ -1,11 +1,7 @@
 def timeCalc(times):
     start_h, start_m = list(map(int, times[1].split(":")))
     end_h, end_m = list(map(int, times[0].split(":")))
-    #timeInfo = times.split(":")
-    answer = 0
-    if int(end_h) == 0:
-        end_h = 24
-    answer += 60 * (end_h - start_h ) + end_m + start_m
+    answer = 60 * (end_h - start_h) + (end_m - start_m)
     return answer
 
 
