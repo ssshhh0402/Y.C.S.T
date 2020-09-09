@@ -1,47 +1,48 @@
 def timeCalc(times):
-    timeInfo = times.split(":")
-    return int(timeInfo[0] + timeInfo[1])
+    start_h, start_m = list(map(int, times[1].split(":")))
+    end_h, end_m = list(map(int, times[0].split(":")))
+    #timeInfo = times.split(":")
+    answer = 0
+    if int(end_h) == 0:
+        end_h = 24
+    answer += 60 * (end_h - start_h ) + end_m + start_m
+    return answer
+
+
 
 def chLyric(lyrics):
-    lyrics.replace('C+', 'c')
-    lyrics.replace('D+', 'd')
-    lyrics.replace('F+', 'f')
-    lyrics.replace('G+', 'g')
-    lyrics.replace('A+', 'a')
+    lyrics = lyrics.replace("C#", "c")
+    lyrics = lyrics.replace("D#", "d")
+    lyrics = lyrics.replace("F#", "f")
+    lyrics = lyrics.replace("G#", "g")
+    lyrics = lyrics.replace("A#", "a")
     return lyrics
-    # 가사 바꿔서 하는걸로 다시 한번 고민!
-def solution(m, musicinfos):
-    answer = 0
-    lyrics = ''
-    base= []
-    m = chLyric(m)
-    for musicinfo in musicinfos:
-        temps = musicinfo.split(",")
-        lyrics = chLyric()
-        count = timeCalc(temps[1]) - timeCalc(temps[0])
-        if count % len(temps[3]) == 0:
-            n = count // len(temps[3])
-        else:
-            n = count // len(temps[3]) + 1
-        lyrics += temps[3] * n
-        for _ in range(count):
-            base.append(temps[2])
-    N = len(m)
-    start = m[0]
 
-    for lyric in range(len(lyrics)):
-        if lyrics[lyric] == start:
-            if lyrics[lyric:lyric+N] == m:
-                if m[-1] == '#':
-                    if lyrics[lyric+N] == '#':
-                        answer = lyric
-                else:
-                    answer = lyric
-    if not answer:
+def solution(m, musicinfos):
+    base =[]
+    m = chLyric(m)
+    for musicinfo in range(len(musicinfos)):
+        lyrics = ''
+        temps = musicinfos[musicinfo].split(",")
+        lyric = chLyric(temps[3])
+        time = timeCalc([temps[1],temps[0]])
+        if time % len(lyric) == 0:
+            n = time // len(lyric)
+            lyrics += lyric * n
+        else:
+            n = time // len(lyric)
+            M = time % len(lyric)
+            lyrics += (lyric * n + lyric[:M])
+        if m in lyrics:
+            base.append([time, musicinfo, temps[2]])
+    if not base:
         return "(None)"
     else:
-        return base[answer-1]
+        base = sorted(base, key=lambda x:(-x[0], x[1]))
+        return base[0][2]
 
-print(solution("ABCDsEFG",["12:00,12:14,HELLO,CDEFGAB", "13:00,13:05,WORLD,ABCDEF"]))
 
-
+#print(solution("ABCDEFG",["12:00,12:14,HELLO,CDEFGAB", "13:00,13:05,WORLD,ABCDEF"]))
+#print(solution("ABC", ["12:00,12:14,HELLO,C#DEFGAB", "13:00,13:05,WORLD,ABCDEF"]))
+#print(solution("CCB", ["03:00,03:10,FOO,CCB#CCB", "04:00,04:08,BAR,ABC"]))
+print(solution("ABC", ["23:00,00:00,FDS,CCCABC"]))
