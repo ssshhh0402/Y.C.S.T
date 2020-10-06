@@ -4,16 +4,16 @@ def check(results):
         if not kind:
             if not y:
                 continue
-            elif (x-1, y, 1) in results or (x, y, 1) in results:
+            elif [x-1, y, 1] in results or [x, y, 1] in results:
                 continue
-            elif (x, y-1, 0) in results:
+            elif [x, y-1, 0] in results:
                 continue
             else:
                 return False
         else:
-            if (x, y-1, 0) in results or (x+1, y-1, 0) in results:
+            if [x, y-1, 0] in results or [x+1, y-1, 0] in results:
                 continue
-            elif (x-1, y, 1) in results and (x+1, y, 1) in results:
+            elif [x-1, y, 1] in results and [x+1, y, 1] in results:
                 continue
             else:
                 return False

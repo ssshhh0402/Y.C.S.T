@@ -1,0 +1,6 @@
+n = int(input())
+alice = list(map(int, input().split()))
+bob = list(map(int, input().split()))
+maxwin = min(alice[0], bob[1]) + min(alice[1], bob[2]) + min(alice[2], bob[0])
+minlose = (alice[0]-min(alice[0], bob[0]+bob[2])) + (alice[1]-min(alice[1], bob[1]+bob[0])) + (alice[2]-min(alice[2], bob[2]+bob[1]))
+print(minlose, maxwin)
