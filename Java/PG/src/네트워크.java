@@ -4,24 +4,19 @@ import java.util.Queue;
 public class 네트워크 {
     public static int solution(int n, int[][] computers) {
         boolean[] used = new boolean[n];
-
         int answer = 0;
         for (int x = 0; x < n; x++) {
             if (!used[x]) {
                 used[x] = true;
                 answer += 1;
-                for (int y = 0; y < n; y++) {
-                    if (x != y && computers[x][y] == 1 && !used[y]) {
-                        Queue<Integer> q = new LinkedList<Integer>();
-                        q.offer(y);
-                        while (!q.isEmpty()) {
-                            int now = q.poll();
-                            used[now] = true;
-                            for (int toGo= 0; toGo < n; toGo++) {
-                                if (!used[toGo] && computers[now][toGo] == 1) {
-                                    q.offer(toGo);
-                                }
-                            }
+                Queue<Integer> q = new LinkedList<Integer>();
+                q.offer(x);
+                while(!q.isEmpty()){
+                    int now = q.poll();
+                    used[now] = true;
+                    for(int toGo= 0; toGo < n; toGo++){
+                        if(!used[toGo] && computers[now][toGo] == 1 && now != toGo){
+                            q.offer(toGo);
                         }
                     }
                 }
