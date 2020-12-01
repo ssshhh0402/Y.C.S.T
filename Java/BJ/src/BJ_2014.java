@@ -10,6 +10,7 @@ public class BJ_2014 {
         String[] inputs = br.readLine().split(" ");
         int K = Integer.parseInt(inputs[0]);
         int N = Integer.parseInt(inputs[1]);
+        int answer = 0;
         PriorityQueue<Integer> pq = new PriorityQueue<>();
         int [] base = new int[K];
         String[] temps = br.readLine().split(" ");
@@ -18,22 +19,18 @@ public class BJ_2014 {
             base[idx] = a;
             pq.offer(a);
         }
-        while(pq.size() < N){
-            for(int item : base){
-                ArrayList<Integer> now = new ArrayList<Integer>();
-                for(int item2 : pq){
-                    int m_item = item * item2;
-                    if (!pq.contains(m_item)){
-                        now.add(m_item);
-                    }
-                }
-                for(int item3: now){
-                    pq.add(item3);
-                }
+        while(N-- > 0){
+            answer = pq.poll();
+            for(int item2 : base){
+                int m_item = answer * item2;
+                pq.offer(m_item);
+
             }
         }
-        for(int idx = 0; )
-        System.out.println("ForTesting");
+        for(int i = 0; i < pq.size(); i++){
+            System.out.println(pq.poll());
+        }
+        System.out.println(answer);
 
     }
 
