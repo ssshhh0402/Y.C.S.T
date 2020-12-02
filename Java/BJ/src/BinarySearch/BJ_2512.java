@@ -11,36 +11,37 @@ public class BJ_2512 {
         int N = Integer.parseInt(br.readLine());
         int[] base = new int[N];
         String[] inputs = br.readLine().split(" ");
-        for(int i = 0; i < N; i++){
+        for (int i = 0; i < N; i++) {
             base[i] = Integer.parseInt(inputs[i]);
         }
         Arrays.sort(base);
         int M = Integer.parseInt(br.readLine());
-        int start = base[0];
-        int end = base[N-1];
+        int start = 0;
+        int end = M;
         int mid = 0;
         int comp = 0;
         int answer = 0;
-        while(start <= end){
+        while (start <= end) {
             mid = (start + end) / 2;
             int count = 0;
-            for(int item : base){
-                if (item > mid){
+            for (int item : base) {
+                if (item > mid) {
                     count += mid;
-                }else{
+                } else {
                     count += item;
                 }
             }
-            if(count >= M){
-                if(count > comp){
-                    comp = count;
-                    answer = end;
-                }
-                start = mid + 1;
-            }else{
+            if (count > M) {
                 end = mid - 1;
+            } else {
+                start = mid + 1;
+                if(count > comp){
+                    comp= count;
+                    answer = mid;
+                }
             }
         }
-    System.out.println(answer);
+        System.out.println(answer);
+
     }
 }
