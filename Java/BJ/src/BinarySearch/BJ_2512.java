@@ -17,7 +17,7 @@ public class BJ_2512 {
         Arrays.sort(base);
         int M = Integer.parseInt(br.readLine());
         int start = 0;
-        int end = M;
+        int end = base[N-1];
         int mid = 0;
         int comp = 0;
         int answer = 0;
