@@ -12,28 +12,31 @@ public class BJ_2110 {
         int N = Integer.parseInt(inputs[0]);
         int C = Integer.parseInt(inputs[1]);
         int[] base = new int[N];
-        for(int i = 0; i < N; i++){
+        for (int i = 0; i < N; i++) {
             base[i] = Integer.parseInt(br.readLine());
         }
         Arrays.sort(base);
-        int left = 0;
-        int right = base[base.length-1];
+        int left = 1;
+        int right = base[N - 1] - base[0];
         int mid = 0;
         int answer = 0;
-        while(left <= right){
-            mid = 0;
-            int remove = 0;
-            int last = 0;
-            for(int item : base){
-                if(item - last < mid){
+        while (left <= right) {
+            mid = (left + right) / 2;
+            int remove = 1;
+            int last = base[0];
+            for (int i = 1; i < N; i++) {
+                if (base[i] - last >= mid) {
                     remove += 1;
-                }else{
-                    last = item;
+                    last = base[i];
                 }
             }
-            if (remove == C){
-
+            if (remove >= C) {
+                answer = mid;
+                left = mid + 1;
+            } else {
+                right = mid - 1;
             }
         }
+        System.out.println(answer);
     }
 }
