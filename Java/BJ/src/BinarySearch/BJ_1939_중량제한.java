@@ -13,7 +13,7 @@ class Pair{
         this.weight = weight;
     }
 }
-public class BJ_1939 {
+public class BJ_1939_중량제한 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

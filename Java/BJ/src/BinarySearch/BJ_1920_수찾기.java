@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-public class BJ_1920 {
+public class BJ_1920_수찾기 {
     public static int binary(int start, int end, int target, int[] base){
         int mid = (start + end) / 2;
         if(mid >= end){

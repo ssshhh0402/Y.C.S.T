@@ -3,7 +3,7 @@ package BinarySearch;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class BJ_1789 {
+public class BJ_1789_수들의합 {
     public static void main(String[] args) throws IOException {
         Scanner scan = new Scanner(System.in);
         long num = scan.nextLong();

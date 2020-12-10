@@ -7,6 +7,9 @@ public class 보행자천국 {
         base[1][1][0] = base[1][1][1] = 1;
         for(int x = 1; x < m+1; x++){
             for(int y = 1; y < n+1; y++){
+                if(x == 1 && y == 1){
+                    continue;
+                }
                 if(citymap[x-1][y-1] == 0){
                     base[x][y][0] = base[x-1][y][0] + base[x][y-1][1];
                     base[x][y][1] = base[x-1][y][0] + base[x][y-1][1];
@@ -16,8 +19,8 @@ public class 보행자천국 {
                 }
             }
         }
+        answer = base[m][n][0] % 20170805;
         return answer;
-
     }
     public static void main(String[] args){
         System.out.println(solution(3,3,new int[][]{{0,0,0},{0,0,0},{0,0,0}}));
