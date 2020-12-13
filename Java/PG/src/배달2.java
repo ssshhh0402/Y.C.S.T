@@ -45,7 +45,6 @@ public class 배달2 {
             }
         }
         for(int i = 1; i < N+1; i++){
-            int item = dist[i];
             if (dist[i] <= K){
                 answer += 1;
             }
