@@ -26,15 +26,15 @@ public class BJ_1504_특정한최단경로 {
         PriorityQueue<T_Pair> pq = new PriorityQueue<T_Pair>();
         dist[start] = 0;
         pq.add(new T_Pair(start, 0));
-        visited[start] = true;
         while(!pq.isEmpty()){
             T_Pair now = pq.poll();
+
             for(T_Pair toGo: base[now.end]){
                 int next = toGo.end;
                 int weight = toGo.weight;
-                if(!visited[next] && dist[next] > dist[now.end] + weight){
+                if( dist[next] > dist[now.end] + weight){
                     dist[next]  = dist[now.end] + weight;
-                    visited[next] = true;
+
                     pq.add(new T_Pair(next, dist[next]));
                 }
 
@@ -58,12 +58,13 @@ public class BJ_1504_특정한최단경로 {
             int end = Integer.parseInt(inputs[1]);
             int weight = Integer.parseInt(inputs[2]);
             base[start].add(new T_Pair(end, weight));
+            base[end].add(new T_Pair(start, weight));
         }
         inputs = br.readLine().split(" ");
         int v1 = Integer.parseInt(inputs[0]);
         int v2 = Integer.parseInt(inputs[1]);
-        int answer = 0;
-        int answer2 = 0;
+        long answer = 0;
+        long answer2 = 0;
         int first = dijk(1,v1,N,base);
         int second = dijk(v1,v2,N,base);
         int third = dijk(v2,N,N,base);
