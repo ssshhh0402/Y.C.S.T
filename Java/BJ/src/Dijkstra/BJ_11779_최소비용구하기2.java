@@ -26,8 +26,6 @@ public class BJ_11779_최소비용구하기2 {
         int m = Integer.parseInt(br.readLine());
         int[] dist= new int[n+1];
         int[] counts = new int[n+1];
-        int count = 0;
-        String answer = "";
         ArrayList<B_Pair2>[] base = new ArrayList[n+1];
         PriorityQueue<B_Pair2> pq = new PriorityQueue<B_Pair2>();
         for(int i = 0; i < n+1; i++){
@@ -43,37 +41,40 @@ public class BJ_11779_최소비용구하기2 {
         String[] inputs = br.readLine().split(" ");
         int s = Integer.parseInt(inputs[0]);
         int e = Integer.parseInt(inputs[1]);
+        ArrayList<Integer> count = new ArrayList<Integer>();
+        String answer = "";
+
         Arrays.fill(dist, Integer.MAX_VALUE);
         pq.add(new B_Pair2(s,0));
         dist[s] = 0;
         while(!pq.isEmpty()){
             B_Pair2 now = pq.poll();
-            int cur = now.end;
-            int c_weight = now.weight;
-            for(B_Pair2 toGo : base[cur]){
+            for(B_Pair2 toGo : base[now.end]){
                 int end = toGo.end;
                 int weight = toGo.weight;
-                if(dist[end] > dist[cur] + weight){
-                    dist[end] = dist[cur] + weight;
+                if(dist[end] > dist[now.end] + weight){
+                    dist[end] = dist[now.end] + weight;
                     counts[end] = now.end;
                     pq.add(new B_Pair2(end, dist[end]));
                 }
             }
         }
         System.out.println(dist[e]);
-        int idx = e;
-        while(idx != s){
-            int now = counts[idx];
-            if(now == s){
-                answer += now;
+        while(true){
+            count.add(e);
+            if(e == s){
                 break;
-            }else{
-                answer += now + " ";
-                idx = now;
             }
-            count += 1;
+            e = counts[e];
         }
-        System.out.println(count);
+        for(int idx = count.size() - 1; idx >= 0; idx--){
+            if(idx == 0){
+                answer += count.get(idx);
+            }else{
+                answer += count.get(idx) + " ";
+            }
+        }
+        System.out.println(count.size());
         System.out.println(answer);
     }
 }
