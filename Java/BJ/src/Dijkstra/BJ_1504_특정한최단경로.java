@@ -28,7 +28,6 @@ public class BJ_1504_특정한최단경로 {
         pq.add(new T_Pair(start, 0));
         while(!pq.isEmpty()){
             T_Pair now = pq.poll();
-
             for(T_Pair toGo: base[now.end]){
                 int next = toGo.end;
                 int weight = toGo.weight;
