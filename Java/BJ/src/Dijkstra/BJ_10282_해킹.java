@@ -4,15 +4,18 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.Arrays;
 import java.util.PriorityQueue;
 
-class H_Pair{
+class H_Pair implements Comparable<H_Pair>{
     int end, weight;
 
     H_Pair(int a, int b){
         this.end = a;
         this.weight = b;
+    }
+    public int compareTo(H_Pair h){
+        return this.weight - h.weight;
     }
 }
 public class BJ_10282_해킹 {
@@ -37,20 +40,29 @@ public class BJ_10282_해킹 {
                 int weight = Integer.parseInt(inputs[2]);
                 base[end].add(new H_Pair(start, weight));
             }
-            boolean[] used = new boolean[n + 1];
-            q.add(new H_Pair(c,0));
+            int[] dist = new int[n+1];
+            Arrays.fill(dist, Integer.MAX_VALUE);
+            pq.add(new H_Pair(c,0));
+            dist[c] = 0;
             int weights = 0;
             int count = 0;
-            used[c] = true;
-            while (!q.isEmpty()) {
-                int now = q.poll();
-                count += 1;
-                for (H_Pair toGo : base[now]) {
-                    if (!used[toGo.end]) {
-                        used[toGo.end] = true;
-                        weights += toGo.weight;
-                        q.add(toGo.end);
+            while (!pq.isEmpty()) {
+                H_Pair now = pq.poll();
+                int a = now.end;
+                int b = now.weight;
+                for(H_Pair toGo : base[now.end]){
+                    int x = toGo.end;
+                    int y = toGo.weight;
+                    if(dist[toGo.end] > b + toGo.weight){
+                        dist[toGo.end] = b + toGo.weight;
+                        pq.add(new H_Pair(toGo.end, dist[toGo.end]));
                     }
+                }
+            }
+            for(int i = 0; i < n+1; i++){
+                if (dist[i] != Integer.MAX_VALUE){
+                    count += 1;
+                    weights = Math.max(weights, dist[i]);
                 }
             }
             answer += count + " " + weights + "\n";
