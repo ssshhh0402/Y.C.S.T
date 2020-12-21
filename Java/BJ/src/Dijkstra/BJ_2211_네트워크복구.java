@@ -30,23 +30,23 @@ public class BJ_2211_네트워크복구 {
         for(int i = 0 ; i < N+1; i++){
             base[i] = new ArrayList<N_Pair>();
         }
-        int[] dist= new int[N+1];
-        Arrays.fill(dist, Integer.MAX_VALUE);
         for(int i = 0 ; i < M; i++){
             inputs = br.readLine().split(" ");
             int start = Integer.parseInt(inputs[0]);
             int end = Integer.parseInt(inputs[1]);
             int weight = Integer.parseInt(inputs[2]);
             base[start].add(new N_Pair(end, weight));
-            base[end].add(new N_Pair(end, weight));
+            base[end].add(new N_Pair(start, weight));
         }
+        int[] dist= new int[N+1];
+        Arrays.fill(dist, Integer.MAX_VALUE);
         dist[1] = 0;
         pq.add(new N_Pair(1,0));
         while(!pq.isEmpty()){
             N_Pair now  = pq.poll();
             for(N_Pair toGo : base[now.end]){
-                if(dist[toGo.end] > dist[now.end] + toGo.weight){
-                    dist[toGo.end] = dist[now.end] + toGo.weight;
+                if(dist[toGo.end] > now.weight + toGo.weight){
+                    dist[toGo.end] = now.weight + toGo.weight;
                     routes[toGo.end] = now.end;
                     pq.add(new N_Pair(toGo.end, dist[toGo.end]));
                 }
@@ -54,18 +54,12 @@ public class BJ_2211_네트워크복구 {
         }
         String answer = "";
         int count = 0;
-        int temps = 0;
         for(int i = 0 ; i < N+1; i++){
-            if (dist[i] != Integer.MAX_VALUE && dist[i] < temps){
-                count = i;
-                temps = dist[i];
+            if(dist[i] != Integer.MAX_VALUE && dist[i] != 0){
+                answer += i + " " + String.valueOf(routes[i]) + "\n";
+                count+= 1;
             }
         }
-        answer += count + "\n";
-        while(count != 1){
-            answer += count + " " + routes[count] + "\n";
-            count = routes[count];
-        }
-        System.out.println(answer);
+        System.out.println(count +"\n" + answer);
     }
 }
