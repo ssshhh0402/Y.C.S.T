@@ -23,6 +23,7 @@ public class BJ_10217_KCM {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int T = Integer.parseInt(br.readLine());
+        String answers = "";
         while(T -- > 0){
             String[] inputs = br.readLine().split(" ");
             int N = Integer.parseInt(inputs[0]), M = Integer.parseInt(inputs[1]), K = Integer.parseInt(inputs[2]);
@@ -32,33 +33,38 @@ public class BJ_10217_KCM {
             for(int i = 0 ; i < N+1; i++){
                 base[i] = new ArrayList<A_Pair>();
             }
-            Arrays.fill(dist, Integer.MAX_VALUE);
-            dist[1] = 0;
             for(int i = 0 ; i < K; i++){
                 inputs = br.readLine().split(" ");
                 int start = Integer.parseInt(inputs[0]), end = Integer.parseInt(inputs[1]), cost = Integer.parseInt(inputs[2]), weight = Integer.parseInt(inputs[3]);
                 base[start].add(new A_Pair(end, weight, cost));
             }
-            int answer = Integer.MAX_VALUE;
-            pq.add(new A_Pair(1,0,0));
+            Arrays.fill(dist, Integer.MAX_VALUE);
+            dist[1] = 0;
+            boolean [] visited = new boolean [N+1];
+            int answer = 0;
+            pq.add(new A_Pair(1,0,0));                                                  //여기까지 Dijkstra 기본 세팅
             while(!pq.isEmpty()){
                 A_Pair now = pq.poll();
+                if(visited[now.end]){
+                    continue;
+                }
+                visited[now.end] = true;
                 for(A_Pair toGo : base[now.end]){
-                    if(dist[toGo.end] > now.weight + toGo.weight && now.cost + toGo.cost <= M){
+                    if(dist[toGo.end] > now.weight + toGo.weight && now.cost + toGo.cost <= M){             // 현재까지의 cost + 앞으로 갈곳까지의 cost 가 M 이하인지 확
                         dist[toGo.end] = now.weight + toGo.weight;
                         pq.add(new A_Pair(toGo.end, dist[toGo.end], now.cost + toGo.cost));
-                        if(toGo.end == N){
+                        if(toGo.end == N){                                                                //다음이 N(LA)일 경우 그 경우의 비용을 answer에 저
                             answer = now.cost + toGo.cost;
                         }
                     }
-
                 }
             }
-            if(answer ==Integer.MAX_VALUE){
-                System.out.println("Poor KCM");
+            if(dist[N] == Integer.MAX_VALUE){
+                answers += "Poor KCM" + "\n";
             }else {
-                System.out.println(answer);
+                answers += String.valueOf(answer) + "\n";
             }
         }
+        System.out.println(answers);
     }
 }
