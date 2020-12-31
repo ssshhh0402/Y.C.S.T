@@ -21,6 +21,13 @@ class C_Pair implements Comparable<C_Pair>{
     }
 }
 public class BJ_2261_가장가까운두점 {
+    public static int find(C_Pair a, C_Pair b){
+        int a_x = Math.abs(a.x);
+        int a_y = Math.abs(a.y);
+        int b_x = Math.abs(b.x);
+        int b_y = Math.abs(b.y);
+        return (b_x - a_x) * (b_x - a_x) + (b_y - a_y) * (b_y - a_y);
+    }
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
@@ -32,13 +39,17 @@ public class BJ_2261_가장가까운두점 {
             int y = Integer.parseInt(inputs[1]);
             pq.add(new C_Pair(x,y));
         }
-        C_Pair now = pq.poll();
-        int now_x = now.x;
-        int now_y = now.y;
-        int answer = 0;
+        C_Pair base = pq.poll();
+        int answer = Integer.MAX_VALUE;
         while(!pq.isEmpty()){
-            now = pq.poll();
+            C_Pair now = pq.poll();
+            int dist = find(base, now);
+            if(dist < answer){
+                answer = dist;
+            }
+            base = now;
         }
+        System.out.println(answer);
 
     }
 }
