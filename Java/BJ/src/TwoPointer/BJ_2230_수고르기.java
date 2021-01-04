@@ -16,14 +16,13 @@ public class BJ_2230_수고르기 {
             base[i] = Integer.parseInt(br.readLine());
         }
         Arrays.sort(base);
-        int s = 0, e = N-1;
-        int answer = Integer.MAX_VALUE;
-        while(s <= e && s < N){
-            int sum = Math.abs(base[s] - base[e]);
+        int s = 0, e = 0, answer= Integer.MAX_VALUE;
+        while(s <= e && e < N){
+            int sum = base[e] - base[s];
             if(sum < M){
-                s += 1;
+                e += 1;
             }else{
-                e -= 1;
+                s += 1;
                 answer = Math.min(answer, sum);
             }
         }
