@@ -35,6 +35,42 @@ public class BJ_1647_마을분활계획 {
             int start = Integer.parseInt(inputs[0]), end = Integer.parseInt(inputs[1]), weight = Integer.parseInt(inputs[2]);
             pq.add(new Pair(start, end, weight));
         }
-
+        int answer = 0;
+        int size = 0;
+        while(size < N-2){
+            Pair now = pq.poll();
+            if(!isSame(now.start, now.end)){
+                union(now.start, now.end);
+                answer += now.weight;
+                size += 1;
+            }
+        }
+        System.out.println(answer);
+    }
+    public static boolean isSame(int a, int b){
+        if(find(a) == find(b)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public static int find(int a){
+        if(a == parents[a]){
+            return a;
+        }else{
+            return parents[a] = find(parents[a]);
+        }
+    }
+    public static void union(int a, int b){
+        int x = find(a);
+        int y = find(b);
+        if(x == y){
+            return;
+        }
+        if(x > y){
+            parents[y]= x;
+        }else{
+            parents[x] = y;
+        }
     }
 }
