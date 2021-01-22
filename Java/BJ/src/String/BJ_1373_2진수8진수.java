@@ -32,7 +32,6 @@ public class BJ_1373_2진수8진수 {
         BigInteger count = BigInteger.valueOf(0);
         for(int i =0; i < inputs.length; i++){
 
-            count += BigInteger.valueOf(Integer.parseInt(inputs[inputs.length-i-1]) * Math.pow(2,i));
             if(i % 3 == 2){
                 find(al);
                 al.clear();
