@@ -29,5 +29,6 @@ function solution(next_student){
         }
         used.fill(false)
     }
+    console.log(answer)
     return answer
 }
