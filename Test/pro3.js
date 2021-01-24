@@ -5,6 +5,7 @@ function solution(next_student){
     const n = next_student.length
     var base = new Array(n+1).fill(0)
     var used = new Array(n+1).fill(false)
+    var dp = new Array(n+1).fill(0)
     for(var i = 0; i < n; i++){
         base[i+1]= next_student[i]
     }
@@ -27,8 +28,9 @@ function solution(next_student){
             comp = count
             answer = i
         }
+        dp[i] = count
         used.fill(false)
     }
-    console.log(answer)
+    console.log(dp)
     return answer
 }
