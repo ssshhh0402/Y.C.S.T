@@ -18,7 +18,7 @@ public class 위장 {
             }
         }
         for(String kind : base.keySet()){
-            answer *= (base.get(kind).size() - 1);
+            answer *= (base.get(kind).size() -  1);
         }
         return answer - 1;
     }
