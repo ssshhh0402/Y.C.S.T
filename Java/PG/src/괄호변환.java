@@ -14,7 +14,7 @@ public class 괄호변환 {
             }
             if(left == right){
                 temps.add(Arrays.copyOfRange(items,0,i+1));
-                temps.add(Arrays.copyOfRange(items, i+1, items.length - 1));
+                temps.add(Arrays.copyOfRange(items, i+1, items.length));
                 break;
             }
         }
@@ -35,38 +35,57 @@ public class 괄호변환 {
         return count == 0;
     }
     public static String[] rev(String[] items){
-        String[] temps = new String[items.length - 2];
+        int n = items.length;
+        String[] temps = new String[n - 2];
+        for(int i = 1; i < n - 1; i++){
+            String target = items[i];
+            if(target.equals("(")){
+                temps[i-1] = ")";
+            }else{
+                temps[i-1] = "(";
+            }
+        }
         return temps;
+    }
+    public static String makeString(String[] items){
+        StringBuilder sb = new StringBuilder();
+        for(String item : items){
+            sb.append(item);
+        }
+        return sb.toString();
     }
     public static String solution(String p){
         StringBuilder sb = new StringBuilder();
         String [] items = p.split("");
         String [] u, v;
-        if(items.length == 0){
+        if(p.length() == 0){
             return sb.toString();
         }else{
-            ArrayList<String[]> temps = div(items);
-            u = temps.get(0);
-            v = temps.get(1);
-            if(ordered(u)){
-                String[] V= solution(v.toString()).split("");
-                sb.append(u);
-                sb.append(V);
-            }else{
-                sb.append("(");
-                String[] U = solution(u.toString()).split("");
-                for(String item : U){
-                    sb.append(item);
+            while(items.length != 0){
+                ArrayList<String[]> temps = div(items);
+                u = temps.get(0);
+                v = temps.get(1);
+                items = v;
+                if(ordered(u)){
+                    for(String item : u){
+                        sb.append(item);
+                    }
+                }else{
+                    sb.append("(");
+                    sb.append(solution(makeString(v)));
+                    sb.append(")");
+                    String [] reversed = rev(u);
+                    for(String item : reversed){
+                        sb.append(item);
+                    }
+                    break;
                 }
-                sb.append(")");
-                String[] V = rev(v);
-                }
-
             }
-
+        }
         return sb.toString();
     }
     public static void main(String[] args){
-        System.out.println(solution("(()())()"));
+        //System.out.println(solution("(()())()"));
+        System.out.println(solution("()))((()"));
     }
 }
