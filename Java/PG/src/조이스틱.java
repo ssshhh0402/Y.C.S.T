@@ -52,6 +52,7 @@ public class 조이스틱 {
             }else{
                 int count = find(now);
                 answer += count;
+                inputs = inputs.substring(0,now-1) + "Z" + inputs.substring(now+1, inputs.length()-1);
                 int left = Left(now);
                 int right = Right(now);
                 if(left == now){
