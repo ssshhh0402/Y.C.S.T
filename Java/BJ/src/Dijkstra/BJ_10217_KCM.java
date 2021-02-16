@@ -44,7 +44,6 @@ public class BJ_10217_KCM {
             pq.add(new A_Pair(1,0,0));                                                  //여기까지 Dijkstra 기본 세팅
             while(!pq.isEmpty()){
                 A_Pair now = pq.poll();
-
                 for(A_Pair toGo : base[now.end]){
                     if(dist[toGo.end] > now.weight + toGo.weight && now.cost + toGo.cost <= M){             // 현재까지의 cost + 앞으로 갈곳까지의 cost 가 M 이하인지 확
                         dist[toGo.end] = now.weight + toGo.weight;
@@ -55,11 +54,16 @@ public class BJ_10217_KCM {
                     }
                 }
             }
-            if(dist[N] == Integer.MAX_VALUE){
+            if(answer == Long.MAX_VALUE){
                 sb.append("Poor KCM\n");
-            }else {
-                sb.append(answer+"\n");
+            }else{
+                sb.append(answer + "\n");
             }
+//            if(dist[N] == Integer.MAX_VALUE){
+//                sb.append("Poor KCM\n");
+//            }else {
+//                sb.append(answer+"\n");
+//            }
         }
         System.out.println(sb.toString());
     }
