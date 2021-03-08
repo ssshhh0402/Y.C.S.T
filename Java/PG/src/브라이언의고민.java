@@ -17,6 +17,7 @@ public class 브라이언의고민 {
                 words += now;
             }
         }
+        return words;
     }
     public static String solution(String sentence){
         ArrayList<String> answer = new ArrayList<String>();
@@ -40,6 +41,7 @@ public class 브라이언의고민 {
                 words += now;
             }
         }
+        return words;
     }
     public static void main(String[] args){
         System.out.println(solution("HaEaLaLaObWORLDb"));
