@@ -1,47 +1,31 @@
-import java.util.ArrayList;
 
 public class 브라이언의고민 {
-    static String base;
-    public static String find(Character target, int idx){
-        String words = "";
-        boolean flag = false;
-        for(int i = idx+1; idx < base.length(); idx++){
-            char now = base.charAt(i);
-            if(Character.isLowerCase(now)){
-                if(now == target){
-                    continue;
-                }else{
-                    words += find(now, i);
-                }
-            }else{
-                words += now;
-            }
-        }
-        return words;
-    }
-    public static String solution(String sentence){
-        ArrayList<String> answer = new ArrayList<String>();
+    public static String solution(String sentence) {
         char target = ' ';
         String words = "";
-        base = sentence;
         StringBuilder sb = new StringBuilder();
-        for(int i = 0 ; i < sentence.length(); i++){
+        for (int i = 0; i < sentence.length(); i++) {
             char now = sentence.charAt(i);
-            if(Character.isLowerCase(now)){
-                String word = find(now, i);
-                if(word.length() != 0){
-                    words += find(now, i);
-                    sb.append(words + " ");
-                }else{
-                    return "Invalid";
+            if (Character.isLowerCase(now)) {
+                if (target == now) {
+                    if (Character.isLowerCase(sentence.charAt(i + 1))) {
+                        sb.append(words);
+                        sb.append(" ");
+                        target = ' ';
+                    }
+                } else {
+                    if (target != ' ') {
+                        sb.append(words);
+                        sb.append(" ");
+                        words = "";
+                    }
+                    target = now;
                 }
-                words += find(now, i);
-                sb.append(words + " ");
-            }else{
+            } else {
                 words += now;
             }
         }
-        return words;
+        return sb.toString();
     }
     public static void main(String[] args){
         System.out.println(solution("HaEaLaLaObWORLDb"));
