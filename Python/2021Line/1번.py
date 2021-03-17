@@ -8,7 +8,6 @@ def solution(boxes):
                 base[num] += 1
             else:
                 base[num] = 1
-    for 
     return answer
 
 

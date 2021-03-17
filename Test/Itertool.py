@@ -41,8 +41,7 @@ for input in inputs:
                 dates = (float)(c_date - n_date) / 365
                 temps = int(moneys * dates)
                 answer += temps
-            else:
-                
+
     else:
         s.append((money,rate,c_date))
 

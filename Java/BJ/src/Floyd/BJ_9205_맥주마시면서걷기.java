@@ -48,6 +48,7 @@ public class BJ_9205_맥주마시면서걷기 {
                     }
                 }
             }
+            
             for(int x = 0; x < N+2; x++){   //중간
                 for(int y = 0; y < N+2; y++){   //시작
                     for(int z = 0; z < N+2; z++){   //끝
