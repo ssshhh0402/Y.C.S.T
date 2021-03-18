@@ -11,40 +11,43 @@ public class BJ_2313_보석구매 {
         StringBuilder sb = new StringBuilder();
         int T = Integer.parseInt(br.readLine());
         int n;
-        int [] base, dp;
-        int start, end, sum;
-        int answer_s, answer_e, answer_sum;
-        int answer = 0;
-        ArrayList<int[]> answers = new ArrayList<int[]>();
+        int [] base;
+        long [] dp;
+        int start, end;
+        int answer_s, answer_e;
+        long answer_sum;
+        long answer = 0;
+        ArrayList<long[]> answers = new ArrayList<long[]>();
         String [] inputs;
         while(T -- > 0){
             n = Integer.parseInt(br.readLine());
-            start = 0;
-            end = 0;
-            sum = 0;
-            answer_s = 0;
-            answer_e = 0;
+            start = 1;
+            end = 1;
+            answer_s = 1;
+            answer_e = 1;
             answer_sum = 0;
             base = new int[n];
-            dp = new int[n];
+            dp = new long [n];
             inputs = br.readLine().split(" ");
             for(int i = 0 ; i < n; i++){
                 base[i] = Integer.parseInt(inputs[i]);
             }
             dp[0] = base[0];
             for(int i = 1; i < n; i++){
-                int one = dp[i-1] + base[i];
+                long one = dp[i-1] + base[i];
                 int two = base[i];
                 if(one > two){
                     dp[i] = one;
-                    end = i;
+                    end = i+1;
                 }else{
                     dp[i] = two;
-                    start = i;
-                    end = i;
+                    start = i+1;
+                    end = i+1;
                 }
                 if(dp[i] > answer_sum){
                     answer_sum = dp[i];
+                    answer_s = start;
+                    answer_e = end;
                 }else if(dp[i] == answer_sum){
                     if(end - start < answer_e - answer_s){
                         answer_s = start;
@@ -62,10 +65,10 @@ public class BJ_2313_보석구매 {
                 }
             }
             answer += answer_sum;
-            answers.add(new int[] {answer_s, answer_e});
+            answers.add(new long [] {answer_s, answer_e});
         }
         sb.append(answer + "\n");
-        for(int [] item : answers){
+        for(long [] item : answers){
             sb.append(item[0] + " " + item[1] + "\n");
         }
         System.out.println(sb.toString());
