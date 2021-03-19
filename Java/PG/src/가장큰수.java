@@ -24,5 +24,6 @@ public class 가장큰수 {
     }
     public static void main(String[] args) {
         System.out.println(solution(new int[] {6,10,2}));
+        System.out.println(solution(new int [] {0,0,0,0}));
     }
 }
