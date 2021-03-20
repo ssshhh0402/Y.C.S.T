@@ -25,7 +25,7 @@ public class BJ_1005_ACM {
         String[] inputs;
 
         while(T -- > 0){
-            answer = Integer.MAX_VALUE;
+            answer = Integer.MIN_VALUE;
             inputs = br.readLine().split(" ");
             N = Integer.parseInt(inputs[0]);
             M = Integer.parseInt(inputs[1]);
@@ -56,7 +56,7 @@ public class BJ_1005_ACM {
             while(!q.isEmpty()){
                 Pair now = q.poll();
                 if(now.end == W){
-                    answer = now.weight;
+                    answer = Math.max(now.weight, answer);
                     continue;
                 }
                 for(int toGo : base[now.end]){
