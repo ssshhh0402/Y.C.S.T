@@ -62,7 +62,6 @@ public class Pro3 {
             }else{
                 sb.append("no" + "\n");
             }
-
         }
         System.out.println(sb.toString());
     }
