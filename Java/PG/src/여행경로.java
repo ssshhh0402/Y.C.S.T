@@ -1,12 +1,11 @@
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 public class 여행경로 {
     static int n;
     static boolean [] visited;
-    static List<String> answers;
+    static ArrayList<String> answers;
     public static void find(String [][] tickets, String now, int count, String routes){
         if(count == n){
             answers.add(routes);
@@ -25,7 +24,7 @@ public class 여행경로 {
         answers = new ArrayList<>();
         n = tickets.length;
         for(int i = 0 ; i < n; i++){
-            if(tickets[i][0] == "ICN"){
+            if(tickets[i][0].equals("ICN")){
                 visited = new boolean[n];
                 visited[i] = true;
                 String route = tickets[i][0] + "," + tickets[i][1];
