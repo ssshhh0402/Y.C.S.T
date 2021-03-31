@@ -10,11 +10,11 @@ public class BJ_2458_키순서 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String [] inputs = br.readLine().split(" ");
         int answer = 0;
+        int infs = 501;
         int N = Integer.parseInt(inputs[0]), M = Integer.parseInt(inputs[1]);
         int [][] dp = new int[N+1][N+1];
-        int max = 500;
         for(int x = 0 ; x < N; x++){
-            Arrays.fill(dp[x],max);
+            Arrays.fill(dp[x],infs);
         }
         for(int i = 0 ; i < M; i++){
             inputs = br.readLine().split(" ");
@@ -30,18 +30,21 @@ public class BJ_2458_키순서 {
                 }
             }
         }
+        int [] count = new int[N+1];
         for(int x = 1; x < N+1; x++){
-            boolean flag = true;
             for(int y = 1; y < N+1; y++){
                 if(x == y){
                     continue;
                 }
-                if(dp[x][y] == max && dp[x][y] == max){
-                    flag = false;
-                    break;
+                if(dp[x][y] != infs && dp[x][y] != infs){
+                    count[x] += 1;
+                    count[y] += 1;
+
                 }
             }
-            if(flag){
+        }
+        for(int i = 1; i < N+1; i++){
+            if(count[i] == (N-1)){
                 answer += 1;
             }
         }
