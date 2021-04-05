@@ -1,9 +1,4 @@
 package Devmat_Back;
-
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 public class Pro3 {
     public static int find(String [] enroll, String target){
         for(int i = 0; i < enroll.length; i++){
@@ -20,8 +15,6 @@ public class Pro3 {
         int [] count = new int[n];
         int [] money = new int[n];
         int [] refer = new int [n];
-
-
         for(int i = 0 ; i < n; i++){
             if(!referral[i].equals("-")){
                 int idx = find(enroll, referral[i]);
