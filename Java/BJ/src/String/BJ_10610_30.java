@@ -9,8 +9,9 @@ public class BJ_10610_30 {
     static long answer = -1;
     static boolean[] used;
     public static void find(String target){
-        if(Long.parseLong(target) % 30 == 0){
-            answer = Long.parseLong(target);
+        long now = Long.parseLong(target);
+        if(now % 30 == 0){
+            answer = Math.max(answer, now);
             return;
         }
         for(int a = 0; a < inputs.length; a++){
