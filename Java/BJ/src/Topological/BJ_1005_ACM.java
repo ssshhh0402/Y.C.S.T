@@ -17,10 +17,11 @@ public class BJ_1005_ACM {
     }
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
         int T = Integer.parseInt(br.readLine());
         int N, M, answer;
         ArrayList<Integer>[] base;
-        int [] count, times;
+        int [] count, times, result;
         Queue<Pair> q;
         String[] inputs;
 
@@ -32,6 +33,7 @@ public class BJ_1005_ACM {
             base = new ArrayList[N+1];
             count = new int[N+1];
             times = new int[N+1];
+            result = new int[N+1];
             q = new LinkedList<Pair>();
             for(int i = 1; i < N+1; i++){
                 base[i] = new ArrayList<Integer>();
@@ -49,24 +51,23 @@ public class BJ_1005_ACM {
             }
             int W = Integer.parseInt(br.readLine());
             for(int i = 1; i < N+1; i++){
+                result[i] = times[i];
                 if(count[i] == 0){
                     q.add(new Pair(i, times[i]));
                 }
             }
             while(!q.isEmpty()){
                 Pair now = q.poll();
-                if(now.end == W){
-                    answer = Math.max(now.weight, answer);
-                    continue;
-                }
                 for(int toGo : base[now.end]){
+                    result[toGo] = Math.max(result[toGo], result[now.end]+ times[toGo]);
                     count[toGo] -= 1;
                     if(count[toGo] == 0){
                         q.add(new Pair(toGo, now.weight + times[toGo]));
                     }
                 }
             }
-            System.out.println(answer);
+            sb.append(result[W] + "\n");
         }
+        System.out.print(sb.toString());
     }
 }
