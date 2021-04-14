@@ -12,11 +12,11 @@ public class BJ_9935_문자열폭발 {
         String base = br.readLine();
         String target = br.readLine();
         int m = target.length();
-        for(int i = 0 ; i < base.length(); i++){
+        for(int i = base.length()-1 ; i >= 0; i--){
             st.push(base.charAt(i));
             if(st.size() >= m && st.peek() == target.charAt(0)){
                 boolean find = true;
-                for(int j = 1; j < m; j++){
+                for(int j = 0; j < m; j++){
                     if(st.get(st.size()-1-j) != target.charAt(j)){
                         find = false;
                         break;
@@ -29,15 +29,14 @@ public class BJ_9935_문자열폭발 {
                 }
             }
         }
-        if(st.empty()){
-            System.out.println("FRULLA");
+        StringBuilder sb = new StringBuilder();
+        if(st.size() == 0){
+            sb.append("FRULA");
         }else{
-            StringBuilder sb = new StringBuilder();
-            for(int i = 0 ; i < st.size(); i++){
+            while(!st.empty()){
                 sb.append(st.pop());
             }
-            System.out.print(sb.toString());
         }
-
+        System.out.print(sb.toString());
     }
 }
