@@ -28,7 +28,7 @@ public class BJ_2152_여행계획 {
        q.add(S);
        while(!q.isEmpty()){
            Integer now = q.poll();
-           
+
        }
     }
 }
