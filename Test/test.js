@@ -15,7 +15,7 @@ function solution(N) {
     const item = parseInt("9");
     console.log(item)
     const itemsx = Math.min(10,Infinity)
-    console.log(itemsx)
+    console.log("itemsx :" + itemsx)
     for (let i = 0; i < N; i++) {
         const answer = items[i]
         let totalPoint = 0
@@ -31,4 +31,7 @@ function solution(N) {
         }
         console.log(totalPoint)
   }
+const a = 'a';
+console.log(a.toUpperCase());
+console.log(a.toLowerCase());
 }

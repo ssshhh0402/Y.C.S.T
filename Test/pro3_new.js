@@ -1,6 +1,6 @@
 solution([5, 9, 13, 1, 0, 0, 11, 1, 7, 12, 9, 9, 2])
-11 => 9 => 7(0)
-7 => 11 => 9 => 7 
+// 11 => 9 => 7(0)
+// 7 => 11 => 9 => 7 
 function find(i, base, dp){
     var used = new Array(base.length + 1).fill(Boolean)
     var count = 1
