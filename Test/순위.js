@@ -1,4 +1,4 @@
-solution(5,[[4, 3], [4, 2], [3, 2], [1, 2], [2, 5]]);
+console.log(solution(5,[[4, 3], [4, 2], [3, 2], [1, 2], [2, 5]]));
 function solution(n, results){
     let answer = 0;
     let dp = Array.from(Array(n+1), () => Array(n+1).fill(Infinity));
@@ -30,11 +30,5 @@ function solution(n, results){
             answer += 1;
         }
     }
-    console.log(dp);
-    console.log(answer);
-    const a = Number.MAX_SAFE_INTEGER;
-    console.log(a);
-    const b = a+1;
-    console.log(b);
-    console.log(a+a);
+    return answer;
 }
