@@ -27,5 +27,8 @@ public class Pro3 {
     }
     public static void main(String[] args) throws IOException {
         System.out.println(solution(3, 2, new int [] {2, 1, 1, 0, 1}));
+        //{1,1,0,0,1,
+        // 1,0,1,0,0}
+
     }
 }
