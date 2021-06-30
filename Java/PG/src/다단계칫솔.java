@@ -20,6 +20,9 @@ public class 다단계칫솔 {
                 answer[index.get(name)] += profit;
                 money /= 10;
                 name = to.get(name);
+                if(money == 0){
+                    break;
+                }
             }
         }
         return answer;
