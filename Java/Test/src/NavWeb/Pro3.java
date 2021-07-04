@@ -16,5 +16,8 @@ public class Pro3 {
         s = "aaaaabbbbb";
         t = "ab";
         System.out.println(solution(s,t));
+        s = "abbbaabbaaabb";
+        t = "ba";
+        System.out.println(solution(s,t));
     }
 }
