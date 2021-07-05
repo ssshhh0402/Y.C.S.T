@@ -1,25 +1,21 @@
 public class Lesson5_3 {
     public static int solution(int [] A){
-//        int [] sums = new int[A.length];
-//        sums[0] = A[0];
-//        for(int i = 1; i < A.length;i++){
-//            sums[i] += sums[i-1] + A[i];
-//        }
-        int left = 0, right = 0, temps = 0, now = 0, comp = Integer.MAX_VALUE;
-        while(left <= right){
-            temps = now / (right - left + 1);
-            if(right == A.length - 1){
-                break;
-            }else if(temps < comp){
-                now += A[right ++];
-            }else{
-                now -= A[left ++];
+        float minAvg = (A[0] + A[1]) / 2f;
+        int minIndex = 0;
+        for (int i = 2; i < A.length; i++) {
+            float avg = (A[i - 2] + A[i - 1] + A[i]) / 3f;
+            if (minAvg > avg) {
+                minAvg = avg;
+                minIndex = i - 2;
             }
-            if(temps < comp){
-                comp = now;
+
+            avg = (A[i - 1] + A[i]) / 2f;
+            if (minAvg > avg) {
+                minAvg = avg;
+                minIndex = i - 1;
             }
         }
-        return left;
+        return minIndex;
     }
     public static void main(String[] args){
         int [] A  = new int [] {4,2,2,5,1,5,8};
