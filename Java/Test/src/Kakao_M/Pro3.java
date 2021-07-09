@@ -31,6 +31,5 @@ public class Pro3 {
         System.out.println(solution(A));
         A = new int [] {4};
         System.out.println(solution(A));
-
     }
 }
