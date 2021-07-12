@@ -1,17 +1,19 @@
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.Arrays;
 
 public class Lesson6_1 {
     public static int solution(int [] A){
-        Map<Integer, Boolean> m = new LinkedHashMap<Integer, Boolean>();
-        int count = 0;
-        for(int a : A){
-            if(!m.containsKey(a)){
-                count += 1;
-                m.put(a, true);
+        Arrays.sort(A);
+        if(A.length == 0){
+            return 0;
+        }
+        int answer = 1;
+
+        for(int i = 1; i < A.length; i++){
+            if(A[i] != A[i-1]){
+                answer += 1;
             }
         }
-        return count;
+        return answer;
     }
     public static void main(String[] args){
         int [] A = new int [] {2,1,1,2,3,1};
