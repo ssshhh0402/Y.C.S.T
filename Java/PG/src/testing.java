@@ -26,7 +26,9 @@ public class testing {
         for(int i = 0; i < 2; i++){
             answer[i] = find(v, i);
         }
+        return answer;
     }
+
     public static void main(String[] args) throws IOException{
         int [] answers = solution(new int [][] {{1,4},{3,4},{3,10}});
     }
