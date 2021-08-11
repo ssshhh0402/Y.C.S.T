@@ -1,53 +1,34 @@
-import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Review {
-    static HashSet<Integer> answer;
-    static boolean [] used;
-    static String [] numbers;
-    static int n;
-    public static boolean isPrime(int now){
-        if(now < 2){
-            return false;
-        }else if(now == 2){
-            return true;
-        }
-        for(int i = 2; i < Math.sqrt(now)+1; i++){
-            if(now % i == 0){
-                return false;
-            }
-        }
-        return true;
-    }
-    public static void find(String now){
-        int N = Integer.parseInt(now);
-        if(isPrime(N)){
-            answer.add(N);
-        }
-        for(int i = 0 ; i < n; i++){
-            if(!used[i]){
-                used[i] = true;
-                find(now + numbers[i]);
-                used[i] = false;
-            }
-        }
-    }
-    public static int solution(String number){
-        numbers = number.split("");
-        answer = new HashSet<Integer>();
-        n = numbers.length;
-        used = new boolean[n];
+    public static int solution(int n, int [][] computers){
+        int answer = 0;
+        boolean [] used = new boolean[n];
+        Queue<Integer> q = new LinkedList<Integer>();
         for(int i = 0; i < n; i++){
-            used[i] = true;
-            find(numbers[i]);
-            used[i] = false;
+            if(!used[i]){
+                answer += 1;
+                q.add(i);
+                while(!q.isEmpty()){
+                    int x = q.poll();
+                    for(int y = 0; y < n; y++){
+                        if(computers[x][y] == 1 && !used[y]){
+                            used[y] = true;
+                            q.add(y);
+                        }
+                    }
+                }
+            }
         }
-        return answer.size();
+        return answer;
     }
     public static void main(String[] args){
-        String N = "17";
-        System.out.println(solution(N));
-        N = "011";
-        System.out.println(solution(N));
+        int n = 3;
+        int [][] computers = new int [][] {{1,1,0}, {1,1,0},{0,0,1}};
+        System.out.println(solution(n, computers));
+        n = 3;
+        computers = new int [][] {{1,1,0},{1,1,1},{0,1,1}};
+        System.out.println(solution(n,computers));
     }
 }
