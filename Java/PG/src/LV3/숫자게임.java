@@ -1,21 +1,18 @@
 package LV3;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 public class 숫자게임 {
 
     public static int solution(int [] A, int [] B){
         int answer = 0;
         int n = A.length;
-        boolean [] used = new boolean[n];
         Arrays.sort(A);
         Arrays.sort(B);
         int idx = 0;
         for(int i = 0 ; i < n; i++){
             for(int j = idx; j < n; j++){
-                if(A[i] < B[j] && !used[j]){
-                    used[j] = true;
+                if(A[i] < B[j]){
                     answer += 1;
                     idx = j+1;
                     break;
