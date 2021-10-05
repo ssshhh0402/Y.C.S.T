@@ -7,14 +7,13 @@ import java.util.Queue;
 public class NineWeek {
     static ArrayList<Integer>[] base;
     public static int find(int n, int x, int y){
-        boolean [] visited;
+        boolean [] visited = new boolean[n+1];
         ArrayList<Integer> al = new ArrayList<Integer>();
         Queue<Integer> q;
         for(int i = 1; i < n+1; i++){
-            if(base[i].size() != 0){
+            if(base[i].size() != 0 && !visited[i]){
                 q = new LinkedList<Integer>();
                 q.add(i);
-                visited = new boolean[n+1];
                 visited[i] = true;
                 int count = 0;
                 while(!q.isEmpty()){
@@ -22,7 +21,7 @@ public class NineWeek {
                     count += 1;
                     for(int toGo : base[now]){
                         if(!visited[toGo]){
-                            if((now != x && toGo != y) && (now != y && toGo != x)){
+                            if(!((now == x && toGo == y) || (now == y && toGo == x))){
                                 visited[toGo] = true;
                                 q.add(toGo);
                             }
