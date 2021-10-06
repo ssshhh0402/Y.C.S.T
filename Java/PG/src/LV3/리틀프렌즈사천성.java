@@ -26,6 +26,7 @@ public class 리틀프렌즈사천성 {
 
         q.add(new Item(x,y));
         String target = boards[x][y];
+        return true;
     }
     public static void find(int count, String route){
         if(count == 0){
