@@ -1,6 +1,8 @@
 package Weekely;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ElevenWeek {
     static int answer, targetX, targetY;
@@ -9,6 +11,9 @@ public class ElevenWeek {
     static boolean [] used;
     static int [] dx = {0,1,0,-1}, dy = {1,0,-1,0};
     public static void find(int a, int b, int c){
+        String target = "Hello";
+        String [] targets = target.split("");
+
         if(a == targetX && b == targetY){
             answer = Math.min(c, answer);
             return;
@@ -27,7 +32,7 @@ public class ElevenWeek {
     public static int solution(int [][] rectangle, int characterX, int characterY, int itemX, int itemY){
         answer = Integer.MAX_VALUE;
         targetX = itemX;
-        targetY = itemY;
+        targetY = itemY; //이거 ArrayList로 해서 배열에다가 넣어보자
         visited = new boolean[51][51];
         base = new int[51][51];
         for(int i = 0 ; i < rectangle.length; i++){
