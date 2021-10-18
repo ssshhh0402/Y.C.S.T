@@ -47,16 +47,16 @@ public class 디스크컨트롤러 {
 
             }
         }
-        for(int i = 0 ; i < n; i++){
-            Job now = pq.poll();
-            if(now.start <= end){
-                answer += (end- now.start) + now.end;
-                end += now.end;
-            }else{
-                answer += (now.end - now.start);
-                end = now.start + now.end;
-            }
-        }
+//        for(int i = 0 ; i < n; i++){
+//            Job now = pq.poll();
+//            if(now.start <= end){
+//                answer += (end- now.start) + now.end;
+//                end += now.end;
+//            }else{
+//                answer += (now.end - now.start);
+//                end = now.start + now.end;
+//            }
+//        }
         return answer / n;
     }
     public static void main(String[] args){
