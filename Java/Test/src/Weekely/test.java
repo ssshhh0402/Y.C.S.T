@@ -1,12 +1,12 @@
 package Weekely;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.PriorityQueue;
 import java.util.Scanner;
+import java.util.PriorityQueue;
 /*
  * Create the Student and Priorities classes here.
  */
-class Student{
+class Student implements Comparable<Student>{
     int id;
     String name;
     double cgpa;
@@ -20,49 +20,52 @@ class Student{
     public String getName(){
         return this.name;
     }
-}
-class Priorities{
-    List<Student> students;
-    ArrayList<Student> al;
-
-    Priorities(List<String> events){
-        this.students = new ArrayList<Student>();
-        this.al = new ArrayList<Student>();
-        for(String event : events){
-            if(event.length() == 6){
-                students.add(al.get(0));
+    public int compareTo(Student s){
+        if(this.cgpa == s.cgpa){
+            if(this.name.equals(s.name)){
+                return this.id - s.id;
             }else{
-                String[] info = event.split(" ");
-                int id = Integer.parseInt(info[1]);
-                double cgpa = Double.parseDouble(info[3]);
-                al.add(new Student(id, info[2], cgpa));
-                al.sort(new Comparator<Student>(){
-                    @Override
-                    public int compare(Student s1, Student s2){
-                        if(s1.cgpa == s2.cgpa){
-                            if(s1.name.equals(s2.name)){
-                                return s1.id - s2.id;
-                            }else{
-                                return s1.name.compareTo(s2.name);
-                            }
-                        }else{
-                            if(s1.cgpa > s2.cgpa){
-                                return 1;
-                            }else{
-                                return -1;
-                            }
-                        }
-                    }
-                });
+                return this.name.compareTo(s.name);
+            }
+        }else{
+            if(this.cgpa > s.cgpa){
+                return -1;
+            }else{
+                return 1;
             }
         }
     }
-    public List<Student> getStudents(){
+}
+class Priorities{
+    List<Student> students;
+    PriorityQueue<Student> pq;
+
+    Priorities(){
+        this.students = new ArrayList<Student>();
+        this.pq = new PriorityQueue<Student>();
+    }
+    public List<Student> getStudents(List<String> events){
+        for(String event : events){
+            if(event.length() == 6){
+                pq.poll();
+            }else{
+                String[] info = event.split(" ");
+                int id = Integer.parseInt(info[3]);
+                double cgpa = Double.parseDouble(info[2]);
+                pq.add(new Student(id, info[1], cgpa));
+            }
+        }
+        double asdf = 0.1345266;
+        System.out.println(Math.round(asdf));
+        int n = pq.size();
+        for(int i = 0 ; i < n; i++){
+            students.add(pq.poll());
+        }
         return this.students;
     }
 }
 
-public class Solution {
+public class test {
     private final static Scanner scan = new Scanner(System.in);
     private final static Priorities priorities = new Priorities();
 
@@ -76,8 +79,7 @@ public class Solution {
         }
 
         List<Student> students = priorities.getStudents(events);
-        PriorityQueue<String> pq = new PriorityQueue<String>();
-        pq.pop
+
         if (students.isEmpty()) {
             System.out.println("EMPTY");
         } else {
