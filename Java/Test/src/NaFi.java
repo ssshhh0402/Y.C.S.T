@@ -1,45 +1,21 @@
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Stack;
+import java.util.*;
 
 public class NaFi{
-
-    public static int solution(String S) {
-        int answer = 1;
-        Stack<Character> st = new Stack<Character>();
-        if (S.length() != 0) {
-            int n = S.length();
-            for (int i = n - 1; i >= 0; i--) {
-                Character now = S.charAt(i);
-                if(now == (']') || now == (')')||now == ('}')){
-                    st.add(now);
-                }else{
-                    if(st.empty()){
-                        answer = 0;
-                        break;
-                    }
-                    char target = st.pop();
-                    if(now == '(' && target != ')'){
-                        answer = 0;
-                        break;
-                    }else if(now == '[' && target != ']'){
-                        answer = 0;
-                        break;
-                    }else if(now == '{' && target != '}'){
-                        answer = 0;
-                        break;
-                    }
-                }
-            }
+    public static List<Integer> solution(int [] a, int k, int [] queries){
+        int n = a.length;
+        List<Integer> answer = new ArrayList<Integer>();
+        for(int query : queries){
+            answer.add(a[(n-(n%k)+query)%n]);
         }
-        if (answer == 1 && st.empty()) {
-            return answer;
-        } else {
-            return 0;
-        }
+        return answer;
     }
     public static void main(String[] args){
-        String s = "{[()()]}";
-        System.out.println(solution(s));
+        int [] a = new int [] {1,2,3};
+        int n = 2;
+        int [] queries = new int[] {0,1,2};
+        List<Integer>answers = solution(a, n,queries);
+        for(int answer : answers){
+            System.out.println(answer);
+        }
     }
 }
