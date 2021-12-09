@@ -30,10 +30,10 @@ public class Pro3 {
     }
     public static void main(String[] args){
         int [] mmr = new int [] {33,56,93,31,18,10,41,93};
-        System.out.println(solution(mmr));
+        System.out.println(solution(mmr)); // 5
         mmr = new int [] {5,56,30,49,38,63};
-//        System.out.println(solution(mmr));
+        System.out.println(solution(mmr)); // 7
         mmr  = new int [] {5,15};
-        System.out.println(solution(mmr));
+        System.out.println(solution(mmr)); // 10
     }
 }

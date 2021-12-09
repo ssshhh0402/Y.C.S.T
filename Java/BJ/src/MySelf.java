@@ -27,9 +27,23 @@ public class MySelf {
         answer = String.join(":",times);
         return answer;
     }
+    public static int chocolateFeast(int n, int c, int m){
+        int answer = n / c;
+        int count = n / c;
+        while(count >= m){
+            int add = count / m;
+            answer += add;
+            count %= m;
+            count += add;
+        }
+        return answer;
+    }
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String time = br.readLine();
-        System.out.println(timeConversion(time));
+        int n = Integer.parseInt(br.readLine());
+        for(int i = 0 ; i < n; i++){
+            String [] inputs = br.readLine().split(" ");
+            System.out.println(chocolateFeast(Integer.parseInt(inputs[0]), Integer.parseInt(inputs[1]), Integer.parseInt(inputs[2])));
+        }
     }
 }
