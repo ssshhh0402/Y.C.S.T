@@ -1,172 +1,77 @@
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
 import java.util.*;
-import java.util.concurrent.*;
-import java.util.function.*;
-import java.util.regex.*;
-import java.util.stream.*;
-import static java.util.stream.Collectors.joining;
-import static java.util.stream.Collectors.toList;
-
-class Result {
-
-    /*
-     * Complete the 'climbingLeaderboard' function below.
-     *
-     * The function is expected to return an INTEGER_ARRAY.
-     * The function accepts following parameters:
-     *  1. INTEGER_ARRAY ranked
-     *  2. INTEGER_ARRAY player
-     */
-    public static int getGrade(List<Integer> ranked){
-        int rank = 1;
-        for(int i = 0; i < ranked.size()-1; i++){
-            int now = ranked.get(i);
-            int before = ranked.get(i+1);
-            if(ranked.get(i) > ranked.get(i+1)){
-                rank += 1;
+/**
+ * 자연수 N개가 중복없이 들어있는 배열이 있습니다.
+ * 이때, 서로 다른 두 원소의 위치를 바꾸는 Swap 연산을 이용해 원소들의 위치를 바꿔 서로 인접한 원소의 차가 K 이하가 되도록 하려 합니다.
+ * 단, Swap 연산을 최대한 적게 사용해야 합니다
+ * 배열 numbers가 매개변수로 주어질 때,
+ * 서로 인접한 원소의 차가 K 이하가 되도록 하는데 필요한 Swap 횟수의 최솟값을 return 하도록 solution 함수를 완성해주세요.
+ *
+ * 제한사항
+ * numbers의 길이(N)는 1 이상 8 이하입니다.
+ * numbers의 원소는 1 이상 100 이하인 자연수입니다.
+ * 숫자는 중복없이 들어있습니다.
+ * K는 1 이상 100 이하인 자연수입니다.
+ * 서로 인접한 원소의 차가 K 이하가 되도록 할 수 있는 방법이 없다면 -1을 return 하세요.
+ */
+import java.util.ArrayList;
+import java.util.Arrays;
+class Solution {
+    static ArrayList<int[]> al;
+    static boolean[] used;
+    static int answer,n;
+    public static void init(int idx, int [] route, int [] numbers, int K){
+        if(idx == n){
+            al.add(Arrays.copyOf(route, n));
+            return;
+        }
+        for(int i = 0; i < n; i++){
+            if(!used[i] && Math.abs(route[idx-1] - numbers[i]) <= K){
+                route[idx] = numbers[i];
+                used[i] = true;
+                init(idx+1, route, numbers, K);
+                used[i] = false;
+                route[idx] = 0;
             }
         }
-        return rank;
     }
-    public static List<Integer> climbingLeaderboard2(List<Integer> scores, List<Integer> alice){
-        ArrayList<Integer> al = new ArrayList<Integer>();
-        List<Integer> answer = new ArrayList<Integer>();
-        int grade = getGrade(scores)+1;
-        for(int score : scores) {
-            if(!al.contains(score)) {
-                al.add(score);
-            }
-        }
-        int x = (int)Math.pow(10, 9);
-        int y =(int)Math.pow(10, 9);
-        int temps2344 [][] = new int[x][y];
-        System.out.println("?????");
-        Collections.sort(al);
-        int idx = al.size()-1;
-        for(int i = 0; i < alice.size(); i++){
-            int now = alice.get(i);
-            int same = 0;
-            for(int j = idx; j >= 0; j--){
-                int temps = al.get(j);
-                if(al.get(j) > now){
-                    idx = j;
-                    grade -= same;
-                    al.add(j+1, now);
-                    break;
-                }else if(al.get(j) < now){
-                    grade -= 1;
-                }else{
-                    same += 1;
-                }
-            }
-            answer.add(grade);
-        }
-        return answer;
-    }
-    public static List<Integer> climbingLeaderboard(List<Integer> scores, List<Integer> alice) {
-        // Write your code here
-        ArrayList<Integer> al = new ArrayList<Integer>();
-        al.add(1);
-        al.add(2);
-        al.add(1, 6);
-        for(int item : al){
-            System.out.println(item);
-        }
-        List<Integer> li = new ArrayList<Integer>();
-        int[] result = new int[alice.size()];
-//중복되는 score 제거. scoreList index+1 = ranking
-        Set<Integer> scoreSet = new HashSet<>();
-        for (int i = 0; i < scores.size(); i++) {
-            scoreSet.add(scores.get(i));
-        }
-        List<Integer> scoreList = new ArrayList<>(scoreSet);
-//내림차순 정렬
-        Collections.sort(scoreList);
-        Collections.reverse(scoreList);
-        int startIndex = 0;
-        for (int i = alice.size() - 1; i >= 0; i--) {
-            int aliceScore = alice.get(i);
-//꼴찌로 가정
-            result[i] = scoreList.size() + 1;
-            for (int j = startIndex; j < scoreList.size(); j++) {
-                if (scoreList.get(j) <= aliceScore) {
-                    result[i] = j + 1;
-                    break;
-                } else {
-                    startIndex++;
-                }
-            }
-        }
-        for(int item : result){
-            li.add(item);
-        }
-        return li;
-    }
-
-}
-
-public class Solution {
-    public static void Que() throws IOException{
-        Stack<Integer> in = new Stack<Integer>();
-        Stack<Integer> out = new Stack<Integer>();
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = 0;
-        String [] inputs;
-        while(n != -1){
-            inputs = br.readLine().split(" ");
-            if(inputs.length == 2){
-                in.add(Integer.parseInt(inputs[1]));
-            }else{
-                n = Integer.parseInt(inputs[0]);
-                if(n == 1){
-                    if(out.size() != 0){
-                        System.out.println(out.pop());
-                    }else{
-                        if(in.size() == 0){
-                            System.out.println("UnderFlow!!");
-                        }else{
-                            while(in.size() != 0){
-                                out.add(in.pop());
-                            }
-                            System.out.println(out.pop());
-                        }
-                    }
-                }else if(n == 3){
-                    if(out.size() != 0){
-                        while(out.size() != 0){
-                            System.out.println(out.pop());
-                        }
-                        while(in.size() != 0){
-                            out.add(in.pop());
-                        }
-                        while(out.size() != 0){
-                            System.out.println(out.pop());
-                        }
-                        System.out.println("-------끝--------");
+    public static int getCount(int [] route, int [] numbers){
+        int count = 0;
+        for(int i = 0; i < n; i++){
+            if(route[i] != numbers[i]){
+                for(int j = 0; j < n; j++){
+                    if(route[i] == numbers[j]){
+                        count += 1;
+                        int temps = route[i];
+                        route[i] = route[j];
+                        route[j] = temps;
+                        break;
                     }
                 }
             }
         }
+        return count;
     }
-    public static void main(String[] args) throws IOException {
-        //Que();
-        List<Integer> li2 = new ArrayList<Integer>();
-        int [] lis = new int [] {100, 90, 90, 80, 75, 60};
-        int [] lis2 = new int [] {50, 65,77, 90, 102};
-        List<Integer> li = new ArrayList<Integer>();
-        for(int item : lis){
-            li.add(item);
+    public int solution(int[] numbers, int K) {
+        answer = Integer.MAX_VALUE;
+        al = new ArrayList<int[]>();
+        n = numbers.length;
+        used = new boolean[n];
+        int [] route = new int[n];
+        for(int i = 0; i < n; i++){
+            used[i] = true;
+            route[0] = numbers[i];
+            init(1, route, numbers, K);
+            route[0] = 0;
+            used[i] = false;
         }
-        for(int item : lis2){
-            li2.add(item);
+        if(al.size() == 0){
+            return -1;
+        }else{
+            for(int [] item : al){
+                int counts = getCount(item, numbers);
+                answer = Math.min(answer, counts);
+            }
+            return answer;
         }
-        List<Integer> answers = Result.climbingLeaderboard2(li,li2);
-        for(int answer : answers){
-            System.out.println(answer);
-        }
-
     }
 }
