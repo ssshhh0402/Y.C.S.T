@@ -65,12 +65,10 @@ public class Pro2_2 {
     public static void main(String [] args){
         int [] numbers = new int [] {10,40,30,20};
         int k = 20;
-        numbers = new int [] {3, 7, 2, 8, 6, 4, 5, 1};
-        k = 0;
-        numbers=  new int []{10,30,40,20};
-        k = 20;
-
-
+//        numbers = new int [] {3, 7, 2, 8, 6, 4, 5, 1};
+//        k = 0;
+//        numbers=  new int []{10,30,40,20};
+//        k = 20;
         System.out.println(solution(numbers, k));
     }
 }

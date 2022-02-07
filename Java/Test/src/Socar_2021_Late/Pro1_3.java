@@ -51,7 +51,7 @@ public class Pro1_3 {
         if(s.charAt(idx) == '('){
             answer = idx - start;
         }else{
-            answer = end - idx-1;
+            answer = end - idx;
         }
         for(int[] item : al){
             if(item[0] > start && item[1] < idx){
@@ -64,8 +64,8 @@ public class Pro1_3 {
     }
     public static void main(String[] args){
         String s = "[]([[]){}";
-        System.out.println(solution(s));
-        s = "[([]]";
+//        System.out.println(solution(s));
+        s = "(()()()"			;
         System.out.println(solution(s));
     }
 }
