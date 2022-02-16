@@ -25,10 +25,22 @@ public class BiggerisGreater {
             }
             if(!answer.equals("")){
                 idx2 = i;
-                
+                String temps = ws[i];
+                ws[i] = ws[idx1];
+                ws[idx1] = temps;
+                break;
             }
         }
-        return answer;
+        if(!answer.equals("")){
+            Arrays.sort(ws,idx2+1, n);
+            StringBuilder sb = new StringBuilder();
+            for(int i = 0; i < n; i++){
+                sb.append(ws[i]);
+            }
+            return sb.toString();
+        }else{
+            return "no answer";
+        }
     }
     public static void main(String[] args){
         StringBuilder sb = new StringBuilder();
