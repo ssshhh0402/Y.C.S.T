@@ -1,72 +1,152 @@
 package LV3;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class 리틀프렌즈사천성 {
-    static boolean [][] visited;
-    static String [][] boards;
-    static ArrayList<String> answers;
-    static int [] dx = new int [] {0,1,0,-1};
-    static int [] dy = new int [] {1,0,-1,0};
-    static class Item{
-        int x, y;
+    static int d;
+    static ArrayList<String> routes;
+    static boolean [][] removed;
+    static boolean [] keyUsed;
+    static Map<Character, ArrayList<int[]>> pairs;
+    static Character [] keys;
+    static int [] dx = new int[] {0,1,0,-1}, dy = new int [] {1,0,-1,0};
+    public static class Spot{
+        int x, y, dir;
         boolean flag;
 
-        Item(int a, int b){
+        Spot(int a, int b, int c, boolean d){
             this.x = a;
             this.y = b;
-            this.flag = false;
+            this.dir = c;
+            this.flag = d;
         }
     }
-    public static boolean isPossible(int x, int y){
-        Queue<Item> q = new LinkedList<Item>();
-
-        q.add(new Item(x,y));
-        String target = boards[x][y];
-        return true;
-    }
-    public static void find(int count, String route){
-        if(count == 0){
-            answers.add(route);
-            return;
+    public static boolean isPossible(int [] spotOne, int [] spotTwo, String[] board){
+        Queue<Spot> q = new LinkedList<Spot>();
+        boolean flag = false;
+        if(spotOne[0] == spotTwo[0] && spotOne[1] < spotTwo[1]){
+            q.add(new Spot(spotOne[0], spotOne[1],0, false));
+        }else if(spotOne[1] == spotTwo[1] && spotOne[0] < spotTwo[0]){
+            q.add(new Spot(spotOne[0], spotOne[1], 1, false));
+        }else if(spotOne[1] < spotTwo[1]){
+            q.add(new Spot(spotOne[0], spotOne[1], 0, false));
+            q.add(new Spot(spotOne[0], spotOne[1], 1, false));
+        }else{
+            q.add(new Spot(spotOne[0], spotOne[1], 0, false));
+            q.add(new Spot(spotOne[0], spotOne[1], 3, false));
         }
-
-    }
-    public static String solution(int m, int n, String[] board){
-        visited = new boolean[m][n];
-        boards = new String[m][n];
-        int count = 0;
-        for(int x = 0; x < m; x++){
-            String [] now = board[x].split("");
-            for(int y = 0; y < n; y++){
-                boards[x][y] = now[y];
-                if(!now[y].equals(".") && !now[y].equals("*")){
-                    count += 1;
-                }
+        while(!q.isEmpty()){
+            Spot now = q.poll();
+            if(now.x == spotTwo[0] && now.y == spotTwo[1]){
+                flag = true;
+                break;
             }
-        }
-        if(count % 2 != 0){
-            return "IMPOSSIBLE";
-        }
-        answers = new ArrayList<String>();
-        for(int x = 0; x < m; x++){
-            for(int y = 0; y < n; y++){
-                if(!boards[x][y].equals("*") && !boards[x][y].equals(".")){
-                    if(isPossible(x,y)){
-                        visited[x][y] = true;
-                        find(count-2, boards[x][y]);
+            int x, y, nextDir;
+            if(!now.flag){
+                nextDir = now.dir + 1 > 3 ? 0 : now.dir+1;
+                x = now.x+dx[nextDir]; y = now.y+dy[now.dir];
+                if(0 <= x && x < board.length && 0 <= y && y < board[0].length()){
+                    char target = board[x].charAt(y);
+                    if(target == '.'){
+                        q.add(new Spot(x, y, nextDir, !now.flag));
+                    }else if(target != 'x' && removed[x][y]){
+                        q.add(new Spot(x, y, now.dir, !now.flag));
+                    }else if(target == board[spotOne[0]].charAt(spotOne[1])){
+                        q.add(new Spot(x,y,now.dir, !now.flag));
+                    }
+                }
+                nextDir = now.dir - 1 < 0 ? 3 : now.dir - 1;
+                x = now.x+dx[nextDir]; y = now.y+dy[now.dir];
+                if(0 <= x && x < board.length && 0 <= y && y < board[0].length()){
+                    char target = board[x].charAt(y);
+                    if(target == '.'){
+                        q.add(new Spot(x, y, nextDir, !now.flag));
+                    }else if(target != 'x' && removed[x][y]){
+                        q.add(new Spot(x, y, now.dir, !now.flag));
+                    }else if(target == board[spotOne[0]].charAt(spotOne[1])){
+                        q.add(new Spot(x,y,now.dir, !now.flag));
                     }
                 }
             }
+            x = now.x+dx[now.dir]; y = now.y + dy[now.dir];
+            if(0 <= x && x < board.length && 0 <= y && y < board[0].length()){
+                char target = board[x].charAt(y);
+                if(target == '.'){
+                    q.add(new Spot(x, y, now.dir, now.flag));
+                }else if(target != 'x' && removed[x][y]){
+                    q.add(new Spot(x, y, now.dir, !now.flag));
+                }else if(target == board[spotOne[0]].charAt(spotOne[1])){
+                    q.add(new Spot(x,y,now.dir, !now.flag));
+                }
+            }
         }
-        if(answers.size() == 0){
-            return "IMPOSSIBLE";
+        return flag;
+    }
+    public static void recursive(int depth, String route, String[] board){
+        if(depth == d){
+            routes.add(route);
+            return;
+        }
+        for(int i = 0; i < d; i++){
+            if(!keyUsed[i]){
+                ArrayList<int[]> spots = pairs.get(keys[i]);
+                if(isPossible(spots.get(0), spots.get(1), board)){
+                    keyUsed[i] = true;
+                    int [] spotOne = spots.get(0), spotTwo = spots.get(1);
+                    removed[spotOne[0]][spotOne[1]] = true;
+                    removed[spotTwo[0]][spotTwo[1]] = true;
+                    recursive(depth+1, route+String.valueOf(board[spotOne[0]].charAt(spotOne[1])), board);
+                    removed[spotOne[0]][spotOne[1]] = false;
+                    removed[spotTwo[0]][spotTwo[1]] = false;
+                    keyUsed[i] = false;
+                }
+            }
+        }
+    }
+    public static String solution(int m, int n, String [] board){
+        routes = new ArrayList<String>();
+        removed = new boolean[n][m];
+        pairs = new LinkedHashMap<Character, ArrayList<int[]>>();
+        for(int x = 0; x < m; x++){
+            for(int y = 0; y < n; y++){
+                char now = board[x].charAt(y);
+                if(now != '.' && now != '*'){
+                    if(pairs.containsKey(now)){
+                        ArrayList<int[]> al = pairs.get(now);
+                        al.add(new int [] {x,y});
+                        pairs.replace(now, al);
+                    }else{
+                        ArrayList<int[]> al = new ArrayList<int[]>();
+                        al.add(new int[]{x,y});
+                        pairs.put(now, al);
+                    }
+
+                }
+            }
+        }
+        keys = pairs.keySet().toArray(new Character[pairs.size()]);
+        d = keys.length;
+        keyUsed=  new boolean[d];
+        for(int i = 0; i < d; i++){
+            if(!keyUsed[i]) {
+                ArrayList<int[]> items = pairs.get(keys[i]);
+                if (isPossible(items.get(0), items.get(1), board)){
+                    int [] spotOne = items.get(0), spotTwo = items.get(1);
+                    keyUsed[i] = true;
+                    removed[spotOne[0]][spotOne[1]] = true;
+                    removed[spotTwo[0]][spotTwo[1]] = true;
+                    recursive(1, String.valueOf(keys[i]), board);
+                    removed[spotOne[0]][spotOne[1]] = false;
+                    removed[spotTwo[0]][spotTwo[1]] = false;
+                    keyUsed[i] = false;
+                }
+            }
+        }
+        if(routes.isEmpty()){
+            return "impossible";
         }else{
-            Collections.sort(answers);
-            return answers.get(0);
+            Collections.sort(routes);
+            return routes.get(0);
         }
     }
     public static void main(String[] args){
