@@ -13,7 +13,6 @@ public class 하샤드수 {
             }else{
                 x = m;
             }
-
         }
         return result;
     }

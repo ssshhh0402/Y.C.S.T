@@ -5,16 +5,25 @@ public class Pro1 {
         int n = S.length();
         boolean flag = true;
         int idx = 0;
-        while(idx < n){
-            char now = S.charAt(idx);
+//        while(idx < n){
+//            char now = S.charAt(idx);
+//            if(now == 'a' && !flag){
+//                break;
+//            }else if(now == 'b'){
+//                flag = false;
+//            }
+//            idx += 1;
+//        }
+        int i;
+        for(i = 0; i < n; i++){
+            char now = S.charAt(i);
             if(now == 'a' && !flag){
                 break;
             }else if(now == 'b'){
                 flag = false;
             }
-            idx += 1;
         }
-        return idx == n;
+        return i == n;
     }
     public static void main(String[] args){
         String S = "aabbb";
